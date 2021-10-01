@@ -30,6 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -41,6 +42,7 @@ public class HardwarePushbotV3
     public DcMotor  rightFrontDrive = null;
     public DcMotor  leftRearDrive = null;
     public DcMotor  rightRearDrive = null;
+    public DcMotor  Spin_fun = null;
     //public DcMotor  SlideMotor = null;
     //public DcMotor  TrackMotor = null;
 
@@ -61,6 +63,7 @@ public class HardwarePushbotV3
         rightFrontDrive  = hwMap.get(DcMotor.class, "right_front");
         leftRearDrive  = hwMap.get(DcMotor.class, "left_back");
         rightRearDrive  = hwMap.get(DcMotor.class, "right_back");
+        Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
         //SlideMotor  = hwMap.get(DcMotor.class, "scoppy_nom_nom");
         //servo = hwMap.get(Servo.class,"Servo1");
         //TrackMotor  = hwMap.get(DcMotor.class, "TrackMotor");
@@ -71,14 +74,15 @@ public class HardwarePushbotV3
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         leftRearDrive.setDirection(DcMotor.Direction.FORWARD);
         rightRearDrive.setDirection(DcMotor.Direction.FORWARD);
-        //SlideMotor.setDirection(DcMotor.Direction.FORWARD);
-        //TrackMotor.setDirection(DcMotor.Direction.FORWARD);
+        Spin_fun.setDirection(DcMotorSimple.Direction.FORWARD);
+
 
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftRearDrive.setPower(0);
         rightRearDrive.setPower(0);
+        Spin_fun.setPower(0);
         //SlideMotor.setPower(0);
         //TrackMotor.setPower(0);
 
@@ -86,6 +90,7 @@ public class HardwarePushbotV3
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Spin_fun.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //SlideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //TrackMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
