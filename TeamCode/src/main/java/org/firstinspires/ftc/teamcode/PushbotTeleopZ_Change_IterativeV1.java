@@ -1,9 +1,4 @@
 
-
-//Github upload and download instructions.
-//Blue arrow to update the project.
-//Green Check with a comment to upload.
-
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
