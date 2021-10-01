@@ -102,7 +102,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
-        telemetry.addData("Camera Y", camera_rot_y)
+        telemetry.addData("Camera Y", camera_rot_y);
         //Set Profile
         if (base_profile == 1)
 
