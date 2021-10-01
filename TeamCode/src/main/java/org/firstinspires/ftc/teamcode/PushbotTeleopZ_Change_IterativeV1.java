@@ -85,6 +85,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             profile = (profile % profile_count);
 
         }
+        
         //Define Do not continue until button Y is not pressed
         if ((profile_switch_debug == 1) & (gamepad1.y == false)) {
             profile_switch_debug = 0;
@@ -101,7 +102,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
-
+        telemetry.addData("Camera Y", camera_rot_y)
         //Set Profile
         if (base_profile == 1)
 
