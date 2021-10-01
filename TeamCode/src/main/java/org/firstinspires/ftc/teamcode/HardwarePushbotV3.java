@@ -43,6 +43,9 @@ public class HardwarePushbotV3
     public DcMotor  leftRearDrive = null;
     public DcMotor  rightRearDrive = null;
     public DcMotor  Spin_fun = null;
+
+    public Servo  camera_y = null;
+
     //public DcMotor  SlideMotor = null;
     //public DcMotor  TrackMotor = null;
 
@@ -64,6 +67,9 @@ public class HardwarePushbotV3
         leftRearDrive  = hwMap.get(DcMotor.class, "left_back");
         rightRearDrive  = hwMap.get(DcMotor.class, "right_back");
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
+
+        camera_y = hwMap.get(Servo.class,"Servo1");
+
         //SlideMotor  = hwMap.get(DcMotor.class, "scoppy_nom_nom");
         //servo = hwMap.get(Servo.class,"Servo1");
         //TrackMotor  = hwMap.get(DcMotor.class, "TrackMotor");
@@ -83,6 +89,7 @@ public class HardwarePushbotV3
         leftRearDrive.setPower(0);
         rightRearDrive.setPower(0);
         Spin_fun.setPower(0);
+
         //SlideMotor.setPower(0);
         //TrackMotor.setPower(0);
 
@@ -91,6 +98,7 @@ public class HardwarePushbotV3
         leftRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Spin_fun.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         //SlideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //TrackMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }

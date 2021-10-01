@@ -42,6 +42,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
     HardwarePushbotV3 robot       = new HardwarePushbotV3();
+
     //Define Start Variables
 //    double CurrentServoPos2 = .5;
     int profile = 0;
@@ -50,6 +51,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     int controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
+    double camera_rot_y = 0;
+
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -66,13 +69,14 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     @Override
     public void loop() {
 
-        //Reset Variables
+        //Reset / Define Variables
         double left;
         double right;
         double forward_backward;
         double left_right;
         double turn_right_left;
         double look_up_down;
+        double spin;
 
         //Define continue when button Y is pressed
         if ((gamepad1.y == true) & (profile_switch_debug == 0)) {
@@ -95,7 +99,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             telemetry.addData("Profile str", "Spider Drive");
         }
 
-        telemetry.addData("Profile int", base_profile);
+        telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
 
         //Set Profile
@@ -142,8 +146,15 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             forward_backward = 0;
             left_right = 0;
             turn_right_left = 0;
-            //Define Forward Backward Controls
+            spin = 0;
+            look_up_down = 0;
 
+            //Define Spin Controls
+            if (gamepad1.x == true) {
+                spin = 1;
+            }
+
+            //Define Forward Backward Controls
             if ((gamepad1.left_stick_y > (controller_safe_zone / 100)) || (gamepad1.left_stick_y < (controller_safe_zone / -100))) {
                 forward_backward = -(gamepad1.left_stick_y);
             }
@@ -162,6 +173,15 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             if ((gamepad1.right_stick_y > (controller_safe_zone / 100)) || (gamepad1.right_stick_y < (controller_safe_zone / -100))) {
                 look_up_down = -(gamepad1.right_stick_y);
             }
+
+            //Define Camera Rotation Limiter
+            if ((camera_rot_y < 90) || (look_up_down < 0)) {
+                camera_rot_y = (camera_rot_y + (look_up_down / 10));
+            }
+            if ((camera_rot_y > -90) || (look_up_down > 0)) {
+                camera_rot_y = (camera_rot_y + (look_up_down / 10));
+            }
+
 
             //Define Change Safe Zone
             if ((gamepad1.right_bumper == true) || (gamepad1.left_bumper == true)) {
@@ -198,12 +218,13 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             robot.leftRearDrive.setPower(turn_right_left);
             robot.rightRearDrive.setPower(turn_right_left);
 
-            if (gamepad1.x == true) {
-                robot.Spin_fun.setPower(1);
+            //Define Spin The Spinner
+            robot.Spin_fun.setPower(spin);
 
-            }
+            //Define Camera Up Down
+            robot.camera_y.setPosition(camera_rot_y);
 
-            }
+        }
         else if (base_profile == 3) {
 
             //Define D-Pad Drive
@@ -211,11 +232,11 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             left_right = 0;
             turn_right_left = 0;
 //            if (gamepad1.)
-            //Define Turn Left Right
-            robot.leftFrontDrive.setPower(turn_right_left);
-            robot.rightFrontDrive.setPower(turn_right_left);
-            robot.leftRearDrive.setPower(turn_right_left);
-            robot.rightRearDrive.setPower(turn_right_left);
+//            //Define Turn Left Right
+//            robot.leftFrontDrive.setPower(turn_right_left);
+//            robot.rightFrontDrive.setPower(turn_right_left);
+//            robot.leftRearDrive.setPower(turn_right_left);
+//            robot.rightRearDrive.setPower(turn_right_left);
             }
 
         }
