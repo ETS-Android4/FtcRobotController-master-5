@@ -185,13 +185,13 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
 
             //Define Change Safe Zone
-            if ((gamepad1.right_bumper == true) || (gamepad1.left_bumper == true)) {
-                if ((gamepad1.right_bumper == true) & (bumper_check == 0) & (controller_safe_zone < 100)) {
+            if ((gamepad1.right_bumper) || (gamepad1.left_bumper)) {
+                if ((gamepad1.right_bumper) & (bumper_check == 0) & (controller_safe_zone < 100)) {
                     controller_safe_zone = controller_safe_zone + 5;
                     bumper_check = 1;
 //                    telemetry.addData("Safe Zone = ", controller_safe_zone, "%");
                 }
-                if ((gamepad1.left_bumper == true) & (bumper_check == 0) & (controller_safe_zone > 0)) {
+                if ((gamepad1.left_bumper) & (bumper_check == 0) & (controller_safe_zone > 0)) {
                     controller_safe_zone = controller_safe_zone - 5;
                     bumper_check = 1;
 //                    telemetry.addData("Safe Zone = ", controller_safe_zone, "%");
