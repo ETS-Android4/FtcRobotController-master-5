@@ -174,11 +174,11 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Define Camera Rotation Limiter
-            if ((camera_rot_y < 1) || (look_up_down < 0)) {
-                camera_rot_y = (camera_rot_y + (look_up_down / 100));
+            if ((camera_rot_y < 1) & (look_up_down < 0)) {
+                camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
-            if ((camera_rot_y > -1) || (look_up_down > 0)) {
-                camera_rot_y = (camera_rot_y + (look_up_down / 100));
+            if ((camera_rot_y > -1) & (look_up_down > 0)) {
+                camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
 
 
