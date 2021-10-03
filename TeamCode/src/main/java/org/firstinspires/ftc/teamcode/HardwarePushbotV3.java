@@ -68,7 +68,7 @@ public class HardwarePushbotV3
         rightRearDrive  = hwMap.get(DcMotor.class, "right_back");
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
 
-        camera_y = hwMap.get(Servo.class,"Servo1");
+        camera_y = hwMap.get(Servo.class,"camera_servo");
 
         //SlideMotor  = hwMap.get(DcMotor.class, "scoppy_nom_nom");
         //servo = hwMap.get(Servo.class,"Servo1");
