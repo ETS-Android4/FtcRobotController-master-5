@@ -107,7 +107,10 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         //Define Movement/Controls
         if (base_profile == 1) {
+
             camera_rot_y = 0;
+            spin = 0;
+
             //Define Spin Controls
             if (gamepad1.x) {
                 spin = 1;
@@ -142,6 +145,14 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 robot.rightRearDrive.setPower(right);
 
             }
+
+            //Define Spin The Spinner
+            robot.Spin_fun.setPower(spin);
+
+            //Define Camera Up Down
+            robot.camera_y.setPosition(camera_rot_y);
+
+
         }
 
         else if (base_profile == 2) {
@@ -191,12 +202,12 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 if ((gamepad1.right_bumper) & (bumper_check == 0) & (controller_safe_zone < 100)) {
                     controller_safe_zone = controller_safe_zone + 5;
                     bumper_check = 1;
-//                    telemetry.addData("Safe Zone = ", controller_safe_zone, "%");
+
                 }
                 if ((gamepad1.left_bumper) & (bumper_check == 0) & (controller_safe_zone > 0)) {
                     controller_safe_zone = controller_safe_zone - 5;
                     bumper_check = 1;
-//                    telemetry.addData("Safe Zone = ", controller_safe_zone, "%");
+
                 }
             }
             else {
@@ -235,9 +246,17 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             left_right = 0;
             turn_right_left = 0;
             if (gamepad1.dpad_up) {
-
+                forward_backward = 1;
             }
-
+            if (gamepad1.dpad_down) {
+                forward_backward = -1;
+            }
+            if (gamepad1.dpad_right) {
+                turn_right_left = 1;
+            }
+            if (gamepad1.dpad_left) {
+                turn_right_left = -1;
+            }
             //Define Forward Backward
             robot.leftFrontDrive.setPower(-forward_backward);
             robot.rightFrontDrive.setPower(forward_backward);
