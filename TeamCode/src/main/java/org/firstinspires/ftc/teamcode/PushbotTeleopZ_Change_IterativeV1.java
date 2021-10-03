@@ -108,6 +108,11 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         //Define Movement/Controls
         if (base_profile == 1) {
 
+            //Define Spin Controls
+            if (gamepad1.x) {
+                spin = 1;
+            }
+
             //Define Tank Drive
             left = -gamepad1.left_stick_y;
             right = -gamepad1.right_stick_y;
@@ -173,14 +178,13 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 look_up_down = -(gamepad1.right_stick_y);
             }
 
-            //Define Camera Rotation Limiter
-            if (camera_rot_y < 1) {
+            //Define Camera Rotation Limiter And Controller
+            if ((camera_rot_y < 1) & (gamepad1.right_stick_y > 0)) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
-            if (camera_rot_y > -1) {
+            if ((camera_rot_y > -1) & (gamepad1.right_stick_y < 0)) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
-
 
             //Define Change Safe Zone
             if ((gamepad1.right_bumper) || (gamepad1.left_bumper)) {
@@ -226,11 +230,11 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
         else if (base_profile == 3) {
 
-            //Define D-Pad Drive
-            forward_backward = 0;
-            left_right = 0;
-            turn_right_left = 0;
-//            if (gamepad1.)
+//            //Define D-Pad Drive
+//            forward_backward = 0;
+//            left_right = 0;
+//            turn_right_left = 0;
+//            if (gamepad1.dpad_up) { }
 //            //Define Turn Left Right
 //            robot.leftFrontDrive.setPower(turn_right_left);
 //            robot.rightFrontDrive.setPower(turn_right_left);
