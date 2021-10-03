@@ -79,7 +79,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         double spin;
 
         //Define continue when button Y is pressed
-        if ((gamepad1.y == true) & (profile_switch_debug == 0)) {
+        if ((gamepad1.y) & (profile_switch_debug == 0)) {
             profile_switch_debug = 1;
             profile = profile + 1;
             profile = (profile % profile_count);
@@ -87,7 +87,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
         
         //Define Do not continue until button Y is not pressed
-        if ((profile_switch_debug == 1) & (gamepad1.y == false)) {
+        if ((profile_switch_debug == 1) & (gamepad1.y)) {
             profile_switch_debug = 0;
         }
 
@@ -104,8 +104,6 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         telemetry.addData("safe zone", controller_safe_zone);
         telemetry.addData("Camera Y", camera_rot_y);
         //Set Profile
-        if (base_profile == 1)
-
 
         //Define Movement/Controls
         if (base_profile == 1) {
@@ -151,7 +149,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             look_up_down = 0;
 
             //Define Spin Controls
-            if (gamepad1.x == true) {
+            if (gamepad1.x) {
                 spin = 1;
             }
 
