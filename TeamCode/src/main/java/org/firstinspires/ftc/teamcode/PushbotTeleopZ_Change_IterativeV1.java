@@ -35,24 +35,20 @@
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Pushbot")
 //@Disabled
 public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
-
     HardwarePushbotV3 robot       = new HardwarePushbotV3();
 
     //Define Start Variables
 //    double CurrentServoPos2 = .5;
     int profile = 0;
-    int base_profile = 0;
     int profile_count = 2;
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
     double camera_rot_y = 0;
-
     @Override
     public void init() {
         robot.init(hardwareMap);
