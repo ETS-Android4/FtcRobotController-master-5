@@ -48,7 +48,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     int profile = 0;
     int base_profile = profile + 1;
     int profile_count = 2;
-    int controller_safe_zone = 10;
+    float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
     double camera_rot_y = 0;
@@ -107,7 +107,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         //Define Movement/Controls
         if (base_profile == 1) {
-
+            camera_rot_y = 0;
             //Define Spin Controls
             if (gamepad1.x) {
                 spin = 1;
@@ -179,10 +179,10 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Define Camera Rotation Limiter And Controller
-            if ((camera_rot_y < 1) & (gamepad1.right_stick_y > 0)) {
+            if ((camera_rot_y < 1) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
-            if ((camera_rot_y > -1) & (gamepad1.right_stick_y < 0)) {
+            if ((camera_rot_y > -1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
 
@@ -230,16 +230,31 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
         else if (base_profile == 3) {
 
-//            //Define D-Pad Drive
-//            forward_backward = 0;
-//            left_right = 0;
-//            turn_right_left = 0;
-//            if (gamepad1.dpad_up) { }
-//            //Define Turn Left Right
-//            robot.leftFrontDrive.setPower(turn_right_left);
-//            robot.rightFrontDrive.setPower(turn_right_left);
-//            robot.leftRearDrive.setPower(turn_right_left);
-//            robot.rightRearDrive.setPower(turn_right_left);
+            //Define D-Pad Drive
+            forward_backward = 0;
+            left_right = 0;
+            turn_right_left = 0;
+            if (gamepad1.dpad_up) {
+
+            }
+
+            //Define Forward Backward
+            robot.leftFrontDrive.setPower(-forward_backward);
+            robot.rightFrontDrive.setPower(forward_backward);
+            robot.leftRearDrive.setPower(-forward_backward);
+            robot.rightRearDrive.setPower(forward_backward);
+
+            //Define Strafe Left Right
+            robot.leftFrontDrive.setPower(-left_right);
+            robot.rightFrontDrive.setPower(left_right);
+            robot.leftRearDrive.setPower(left_right);
+            robot.rightRearDrive.setPower(-left_right);
+
+            //Define Turn Left Right
+            robot.leftFrontDrive.setPower(turn_right_left);
+            robot.rightFrontDrive.setPower(turn_right_left);
+            robot.leftRearDrive.setPower(turn_right_left);
+            robot.rightRearDrive.setPower(turn_right_left);
             }
 
         }
