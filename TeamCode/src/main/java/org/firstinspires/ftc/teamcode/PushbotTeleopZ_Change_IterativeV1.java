@@ -46,7 +46,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     //Define Start Variables
 //    double CurrentServoPos2 = .5;
     int profile = 0;
-    int base_profile = profile + 1;
+    int base_profile = 0;
     int profile_count = 2;
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
@@ -91,8 +91,10 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             profile_switch_debug = 0;
         }
 
-        //Display Stats
+        //Set Profile
         int base_profile = profile + 1;
+
+        //Display Stats
         if (base_profile == 1) {
             telemetry.addData("Profile str", "Tank Drive");
         }
@@ -103,6 +105,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
         telemetry.addData("Camera Y", camera_rot_y);
+
         //Set Profile
 
         //Define Movement/Controls
