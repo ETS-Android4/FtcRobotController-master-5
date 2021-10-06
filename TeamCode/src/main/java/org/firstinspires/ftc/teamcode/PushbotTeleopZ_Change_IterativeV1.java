@@ -44,7 +44,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     //Define Start Variables
 //    double CurrentServoPos2 = .5;
     int profile = 0;
-    int profile_count = 2;
+    int profile_count = 3;
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
