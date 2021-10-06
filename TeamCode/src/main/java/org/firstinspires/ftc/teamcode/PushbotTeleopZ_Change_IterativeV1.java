@@ -245,18 +245,32 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             forward_backward = 0;
             left_right = 0;
             turn_right_left = 0;
+
             if (gamepad1.dpad_up) {
                 forward_backward = 1;
             }
+
             if (gamepad1.dpad_down) {
                 forward_backward = -1;
             }
+
             if (gamepad1.dpad_left) {
                 turn_right_left = 1;
             }
+
             if (gamepad1.dpad_right) {
                 turn_right_left = -1;
             }
+
+            //Spin The Spinner
+                camera_rot_y = 0;
+                spin = 0;
+
+                //Define Spin Controls
+                if (gamepad1.x) {
+                    spin = 1;
+                }
+
             //Define Forward Backward
             robot.leftFrontDrive.setPower(-forward_backward);
             robot.rightFrontDrive.setPower(forward_backward);
