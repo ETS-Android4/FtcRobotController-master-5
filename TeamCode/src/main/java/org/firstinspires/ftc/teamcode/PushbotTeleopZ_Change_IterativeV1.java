@@ -288,6 +288,9 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             robot.rightFrontDrive.setPower(turn_right_left);
             robot.leftRearDrive.setPower(turn_right_left);
             robot.rightRearDrive.setPower(turn_right_left);
+
+            //Define Spin The Spinner
+            robot.Spin_fun.setPower(spin);
             }
 
         }
