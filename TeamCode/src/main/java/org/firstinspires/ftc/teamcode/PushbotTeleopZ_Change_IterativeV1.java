@@ -250,10 +250,10 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             if (gamepad1.dpad_down) {
                 forward_backward = -1;
             }
-            if (gamepad1.dpad_right) {
+            if (gamepad1.dpad_left) {
                 turn_right_left = 1;
             }
-            if (gamepad1.dpad_left) {
+            if (gamepad1.dpad_right) {
                 turn_right_left = -1;
             }
             //Define Forward Backward
