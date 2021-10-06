@@ -189,10 +189,10 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Define Camera Rotation Limiter And Controller
-            if ((camera_rot_y < 1) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
+            if ((camera_rot_y > -1) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
-            if ((camera_rot_y > -1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
+            if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 1000));
             }
 
