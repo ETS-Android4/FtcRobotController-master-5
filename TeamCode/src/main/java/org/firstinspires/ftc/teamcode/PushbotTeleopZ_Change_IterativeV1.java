@@ -84,7 +84,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
         
         //Define Do not continue until button Y is not pressed
-        if ((profile_switch_debug == 1) & (gamepad1.y)) {
+        if ((profile_switch_debug == 1) & (gamepad1.y == false)) {
             profile_switch_debug = 0;
         }
 
