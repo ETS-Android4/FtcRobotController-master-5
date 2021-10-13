@@ -49,6 +49,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     int profile_switch_debug = 0;
     int bumper_check = 0;
     double camera_rot_y = 0;
+    double cam_y_max = 1;
+    double cam_y_min = 0;
 
     @Override
     public void init() {
@@ -163,6 +165,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             turn_right_left = 0;
             spin = 0;
             look_up_down = 0;
+            cam_y_max = 0.7;
+            cam_y_min = 0.2;
 
             //Define Spin Controls
             if (gamepad1.x) {
@@ -190,20 +194,20 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Define Camera Rotation Limiter And Controller
-            if ((camera_rot_y > 0) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
+            if ((camera_rot_y > cam_y_min) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
 
-            else if (camera_rot_y <= 0) {
-                camera_rot_y = 0;
+            else if (camera_rot_y <= cam_y_min) {
+                camera_rot_y = cam_y_min;
             }
 
-            if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
+            if ((camera_rot_y < cam_y_max) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
 
-            else if (camera_rot_y >= 1) {
-                camera_rot_y = 1;
+            else if (camera_rot_y >= cam_y_max) {
+                camera_rot_y = cam_y_max;
             }
 
             //Define Change Safe Zone
