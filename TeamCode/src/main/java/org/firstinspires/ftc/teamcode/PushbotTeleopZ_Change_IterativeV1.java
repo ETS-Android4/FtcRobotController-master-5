@@ -48,7 +48,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
-    double camera_rot_y = 0.5;
+    double camera_rot_y = 0;
 
     @Override
     public void init() {
@@ -193,14 +193,17 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             if ((camera_rot_y > 0) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
+
             else {
-                camera_rot_y = 0;
+
             }
+
             if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
+
             else {
-                camera_rot_y = 1;
+
             }
 
             //Define Change Safe Zone
