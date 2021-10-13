@@ -84,7 +84,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
         
         //Define Do not continue until button Y is not pressed
-        if ((profile_switch_debug == 1) & (gamepad1.y == false)) {
+        if ((profile_switch_debug == 1) & (!gamepad1.y)) {
             profile_switch_debug = 0;
         }
 
@@ -193,8 +193,14 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             if ((camera_rot_y > 0) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
+            else {
+                camera_rot_y = 0;
+            }
             if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
+            }
+            else {
+                camera_rot_y = 1;
             }
 
             //Define Change Safe Zone
