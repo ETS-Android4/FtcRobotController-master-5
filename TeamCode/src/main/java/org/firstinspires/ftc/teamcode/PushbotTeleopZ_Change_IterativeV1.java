@@ -108,7 +108,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         //Define Movement/Controls
         if (base_profile == 1) {
 
-            camera_rot_y = 0;
+            camera_rot_y = 0.5;
             spin = 0;
 
             //Define Spin Controls
@@ -194,13 +194,13 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
             else {
-                camera_rot_y = 0;
+                camera_rot_y = 1;
             }
             if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
                 camera_rot_y = (camera_rot_y + (look_up_down / 100));
             }
             else {
-                camera_rot_y = 1;
+                camera_rot_y = 0;
             }
 
             //Define Change Safe Zone
