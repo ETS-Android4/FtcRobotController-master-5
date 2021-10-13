@@ -195,7 +195,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             else {
-
+                camera_rot_y = 1;
             }
 
             if ((camera_rot_y < 1) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
@@ -203,7 +203,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             else {
-
+                camera_rot_y = 0;
             }
 
             //Define Change Safe Zone
