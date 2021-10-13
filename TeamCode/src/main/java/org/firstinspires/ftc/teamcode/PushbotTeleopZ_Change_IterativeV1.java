@@ -258,6 +258,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             forward_backward = 0;
             left_right = 0;
             turn_right_left = 0;
+            camera_rot_y = 0.5;
 
             if (gamepad1.dpad_up) {
                 forward_backward = 1;
