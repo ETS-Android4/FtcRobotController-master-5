@@ -45,11 +45,6 @@ public class HardwarePushbotV3
     public DcMotor  Spin_fun = null;
 
     public Servo  camera_y = null;
-
-    //public DcMotor  SlideMotor = null;
-    //public DcMotor  TrackMotor = null;
-
-    //public Servo  servo = null;
     
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
@@ -69,12 +64,6 @@ public class HardwarePushbotV3
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
 
         camera_y = hwMap.get(Servo.class,"camera_servo");
-
-        //SlideMotor  = hwMap.get(DcMotor.class, "scoppy_nom_nom");
-        //servo = hwMap.get(Servo.class,"Servo1");
-        //TrackMotor  = hwMap.get(DcMotor.class, "TrackMotor");
-
-
 
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
