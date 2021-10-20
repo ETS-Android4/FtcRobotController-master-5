@@ -256,7 +256,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         }
         else if (base_profile == 3) {
-            camera_rot_y = 0.5;
+
             //Define D-Pad Drive
             forward_backward = 0;
             left_right = 0;
@@ -280,7 +280,6 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Spin The Spinner
-
                 spin = 0;
 
                 //Define Spin Controls
@@ -308,6 +307,9 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
+
+            //Define Camera Up Down
+            robot.camera_y.setPosition(camera_rot_y);
             }
 
         }
