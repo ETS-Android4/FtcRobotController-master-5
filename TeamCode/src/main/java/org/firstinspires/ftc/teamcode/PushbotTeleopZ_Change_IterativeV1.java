@@ -230,23 +230,30 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 bumper_check = 0;
             }
 
+//            //Define Forward Backward
+//            robot.leftFrontDrive.setPower(-forward_backward);
+//            robot.rightFrontDrive.setPower(forward_backward);
+//            robot.leftRearDrive.setPower(-forward_backward);
+//            robot.rightRearDrive.setPower(forward_backward);
+//
+//            //Define Strafe Left Right
+//            robot.leftFrontDrive.setPower(-left_right);
+//            robot.rightFrontDrive.setPower(left_right);
+//            robot.leftRearDrive.setPower(left_right);
+//            robot.rightRearDrive.setPower(-left_right);
+//
+//            //Define Turn Left Right
+//            robot.leftFrontDrive.setPower(turn_right_left);
+//            robot.rightFrontDrive.setPower(turn_right_left);
+//            robot.leftRearDrive.setPower(turn_right_left);
+//            robot.rightRearDrive.setPower(turn_right_left);
+
+
             //Define Forward Backward
-            robot.leftFrontDrive.setPower(-forward_backward);
-            robot.rightFrontDrive.setPower(forward_backward);
-            robot.leftRearDrive.setPower(-forward_backward);
-            robot.rightRearDrive.setPower(forward_backward);
-
-            //Define Strafe Left Right
-            robot.leftFrontDrive.setPower(-left_right);
-            robot.rightFrontDrive.setPower(left_right);
-            robot.leftRearDrive.setPower(left_right);
-            robot.rightRearDrive.setPower(-left_right);
-
-            //Define Turn Left Right
-            robot.leftFrontDrive.setPower(turn_right_left);
-            robot.rightFrontDrive.setPower(turn_right_left);
-            robot.leftRearDrive.setPower(turn_right_left);
-            robot.rightRearDrive.setPower(turn_right_left);
+            robot.leftFrontDrive.setPower(-forward_backward + -left_right + turn_right_left);
+            robot.rightFrontDrive.setPower(forward_backward + left_right + turn_right_left);
+            robot.leftRearDrive.setPower(-forward_backward + left_right + turn_right_left);
+            robot.rightRearDrive.setPower(forward_backward + -left_right + turn_right_left);
 
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
