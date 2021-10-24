@@ -121,7 +121,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin Controls
             if (gamepad1.x) {
-                spin = 1;
+                spin = 0.5;
             }
 
             //Define Left Wheels
@@ -171,7 +171,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin Controls
             if (gamepad1.x) {
-                spin = 1;
+                spin = 0.5;
             }
 
             //Define Forward Backward Controls
@@ -266,12 +266,12 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Spin The Spinner
-                spin = 0;
+            spin = 0;
 
-                //Define Spin Controls
-                if (gamepad1.x) {
-                    spin = 1;
-                }
+            //Define Spin Controls
+            if (gamepad1.x) {
+                spin = 0.5;
+            }
 
             //Define New Drive
             robot.leftFrontDrive.setPower(-forward_backward + -left_right + turn_right_left);
