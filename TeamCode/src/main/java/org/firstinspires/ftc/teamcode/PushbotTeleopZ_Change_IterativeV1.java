@@ -72,14 +72,15 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         //Start Files Here
 
         //Reset / Define Variables
-        double left;
-        double right;
-        double forward_backward;
-        double left_right;
-        double turn_right_left;
-        double look_up_down;
-        double spin;
-
+        double left = 0;
+        double right = 0;
+        double forward_backward = 0;
+        double left_right = 0;
+        double turn_right_left = 0;
+        double look_up_down = 0;
+        double spin = 0;
+        double trig_right = 0;
+        double trig_left = 0;
         //Define continue when button Y is pressed
         if ((gamepad1.y) & (profile_switch_debug == 0)) {
             profile_switch_debug = 1;
@@ -113,6 +114,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         //Define Movement/Controls
         if (base_profile == 1) {
 
+            //Define Tank Drive
+
             camera_rot_y = 0.5;
             spin = 0;
 
@@ -121,42 +124,37 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
                 spin = 1;
             }
 
-            //Define Tank Drive
-            left = -gamepad1.left_stick_y;
-            right = -gamepad1.right_stick_y;
-
-            if (gamepad1.left_trigger > 0.1) {
-
-                //Define Strafe Left
-                robot.leftFrontDrive.setPower(-gamepad1.left_trigger);
-                robot.rightFrontDrive.setPower(gamepad1.left_trigger);
-                robot.leftRearDrive.setPower(gamepad1.left_trigger);
-                robot.rightRearDrive.setPower(-gamepad1.left_trigger);
-
-            } else if (gamepad1.right_trigger > 0.1) {
-
-                //Define Strafe Right
-                robot.leftFrontDrive.setPower(gamepad1.right_trigger);
-                robot.rightFrontDrive.setPower(-gamepad1.right_trigger);
-                robot.leftRearDrive.setPower(-gamepad1.right_trigger);
-                robot.rightRearDrive.setPower(gamepad1.right_trigger);
-
-            } else {
-
-                //Define Forward Backward
-                robot.leftFrontDrive.setPower(-left);
-                robot.rightFrontDrive.setPower(right);
-                robot.leftRearDrive.setPower(-left);
-                robot.rightRearDrive.setPower(right);
-
+            //Define Left Wheels
+            if ((gamepad1.left_stick_y > (controller_safe_zone / 100)) || (gamepad1.left_stick_y < (controller_safe_zone / -100))) {
+                left = -gamepad1.left_stick_y;
             }
+
+            //Define Right Wheels
+            if ((gamepad1.right_stick_y > (controller_safe_zone / 100)) || (gamepad1.right_stick_y < (controller_safe_zone / -100))) {
+                right = -gamepad1.right_stick_y;
+            }
+
+            //Define Strafe Right
+            if ((gamepad1.right_trigger > (controller_safe_zone / 100)) || (gamepad1.right_trigger < (controller_safe_zone / -100))) {
+                trig_right = gamepad1.right_trigger;
+            }
+
+            //Define Strafe Left
+            if ((gamepad1.right_trigger > (controller_safe_zone / 100)) || (gamepad1.right_trigger < (controller_safe_zone / -100))) {
+                trig_left = gamepad1.right_trigger;
+            }
+
+            //Define New Drive
+            robot.leftFrontDrive.setPower(-left + trig_right + -trig_left);
+            robot.rightFrontDrive.setPower(right + -trig_right + trig_left);
+            robot.leftRearDrive.setPower(-left + -trig_right + trig_left);
+            robot.rightRearDrive.setPower(right + trig_right + -trig_left);
 
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
 
             //Define Camera Up Down
             robot.camera_y.setPosition(camera_rot_y);
-
 
         }
 
