@@ -81,6 +81,9 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         double spin = 0;
         double trig_right = 0;
         double trig_left = 0;
+
+        //Define Controller 1
+
         //Define continue when button Y is pressed
         if ((gamepad1.y) & (profile_switch_debug == 0)) {
             profile_switch_debug = 1;
@@ -285,6 +288,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             //Define Camera Up Down
             robot.camera_y.setPosition(camera_rot_y);
             }
+
+        //Define Controller 2
 
         }
 
