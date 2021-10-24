@@ -111,7 +111,6 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
         telemetry.addData("Camera Y", camera_rot_y);
-
         //Set Profile
 
         //Define Movement/Controls
@@ -290,6 +289,14 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
         //Define Controller 2
+
+        double arm_power = 0;
+
+        if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
+            arm_power = gamepad2.right_stick_y;
+        }
+        robot.arm_rot.setPower(arm_power / 2);
+        robot.bucket_rot.setPosition(arm_power);
 
         }
 
