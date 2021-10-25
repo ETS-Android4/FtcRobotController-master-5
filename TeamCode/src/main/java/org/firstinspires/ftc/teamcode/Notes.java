@@ -83,4 +83,11 @@ public class Notes {
     //SlideMotor  = hwMap.get(DcMotor.class, "scoppy_nom_nom");
     //servo = hwMap.get(Servo.class,"Servo1");
     //TrackMotor  = hwMap.get(DcMotor.class, "TrackMotor");
+
+    //SlideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    //TrackMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+    //SlideMotor.setPower(0);
+    //TrackMotor.setPower(0);
+
 }

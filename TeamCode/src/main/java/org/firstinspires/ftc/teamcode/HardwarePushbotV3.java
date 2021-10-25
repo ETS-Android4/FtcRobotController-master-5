@@ -85,9 +85,6 @@ public class HardwarePushbotV3
         Spin_fun.setPower(0);
         arm_rot.setPower(0);
 
-        //SlideMotor.setPower(0);
-        //TrackMotor.setPower(0);
-
         leftFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -95,8 +92,6 @@ public class HardwarePushbotV3
         Spin_fun.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         arm_rot.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //SlideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //TrackMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
  }
 
