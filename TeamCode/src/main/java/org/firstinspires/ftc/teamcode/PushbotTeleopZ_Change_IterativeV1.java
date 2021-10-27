@@ -298,7 +298,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         double arm_power = 0;
 
         if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
-            arm_power = gamepad2.right_stick_y;
+            arm_power = -gamepad2.right_stick_y;
         }
         robot.arm_rot.setPower(arm_power / 2);
         robot.bucket_rot.setPosition(0);
