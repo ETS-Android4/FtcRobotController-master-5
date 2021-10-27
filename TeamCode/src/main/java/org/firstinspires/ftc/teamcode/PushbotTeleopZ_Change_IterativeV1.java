@@ -149,8 +149,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             //Define Strafe Left
-            if ((gamepad1.right_trigger > (controller_safe_zone / 100)) || (gamepad1.right_trigger < (controller_safe_zone / -100))) {
-                trig_left = gamepad1.right_trigger;
+            if ((gamepad1.left_trigger > (controller_safe_zone / 100)) || (gamepad1.left_trigger < (controller_safe_zone / -100))) {
+                trig_left = gamepad1.left_trigger;
             }
 
             //Define New Drive
