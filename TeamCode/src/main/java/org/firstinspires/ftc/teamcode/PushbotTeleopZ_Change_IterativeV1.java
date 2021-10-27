@@ -82,6 +82,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         double trig_right = 0;
         double trig_left = 0;
 
+
+
         //Define Controller 1
 
         //Define continue when button Y is pressed
@@ -242,6 +244,9 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             //Define Camera Up Down
             robot.camera_y.setPosition(camera_rot_y);
 
+            //Define Bucket Rotation
+
+
         }
         else if (base_profile == 3) {
 
@@ -296,7 +301,7 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             arm_power = gamepad2.right_stick_y;
         }
         robot.arm_rot.setPower(arm_power / 2);
-        robot.bucket_rot.setPosition(arm_power);
+        robot.bucket_rot.setPosition(0);
 
         }
 

@@ -68,6 +68,7 @@ public class HardwarePushbotV3
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
         arm_rot         = hwMap.get(DcMotor.class,"arm_rot");
         wacky_wacky = hwMap.get(DcMotor.class, "wacky_wacky");
+
         camera_y = hwMap.get(Servo.class,"camera_servo");
         bucket_rot = hwMap.get(Servo.class,"bucket_rot");
 
