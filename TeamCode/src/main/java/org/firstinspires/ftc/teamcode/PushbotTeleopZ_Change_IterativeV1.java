@@ -310,9 +310,15 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             bucket_power = -gamepad2.left_stick_y;
         }
+        if ((gamepad2.left_trigger > (controller_safe_zone / 100)) || (gamepad2.left_trigger < (controller_safe_zone / -100))) {
+            wack_power = gamepad2.left_trigger / 3;
+        }
+        if ((gamepad2.right_trigger > (controller_safe_zone / 100)) || (gamepad2.right_trigger < (controller_safe_zone / -100))) {
+            wack_power = -gamepad2.right_trigger / 3;
+        }
 
-        robot.arm_rot.setPower(arm_power / 2.5);
-        robot.bucket_rot.setPower(bucket_power);
+        robot.arm_rot.setPower(arm_power / 2);
+        robot.bucket_rot.setPower(arm_power);
         robot.wacky_wacky.setPower(wack_power);
         }
 
