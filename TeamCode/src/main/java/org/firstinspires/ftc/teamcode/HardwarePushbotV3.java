@@ -44,7 +44,7 @@ public class HardwarePushbotV3
     public DcMotor  rightRearDrive = null;
     public DcMotor  Spin_fun = null;
     public DcMotor  arm_rot = null;
-
+    public DcMotor  wacky_wacky = null;
     public Servo  camera_y = null;
     public Servo  bucket_rot = null;
     
@@ -67,7 +67,7 @@ public class HardwarePushbotV3
         rightRearDrive  = hwMap.get(DcMotor.class, "right_back");
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
         arm_rot         = hwMap.get(DcMotor.class,"arm_rot");
-
+        wacky_wacky = hwMap.get(DcMotor.class, "wacky_wacky");
         camera_y = hwMap.get(Servo.class,"camera_servo");
         bucket_rot = hwMap.get(Servo.class,"bucket_rot");
 
@@ -75,8 +75,9 @@ public class HardwarePushbotV3
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         leftRearDrive.setDirection(DcMotor.Direction.FORWARD);
         rightRearDrive.setDirection(DcMotor.Direction.FORWARD);
-        Spin_fun.setDirection(DcMotorSimple.Direction.FORWARD);
-        arm_rot.setDirection(DcMotorSimple.Direction.FORWARD);
+        Spin_fun.setDirection(DcMotor.Direction.FORWARD);
+        arm_rot.setDirection(DcMotor.Direction.FORWARD);
+        wacky_wacky.setDirection(DcMotor.Direction.FORWARD);
 
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
@@ -84,6 +85,7 @@ public class HardwarePushbotV3
         rightRearDrive.setPower(0);
         Spin_fun.setPower(0);
         arm_rot.setPower(0);
+        wacky_wacky.setPower(0);
 
         leftFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -91,6 +93,7 @@ public class HardwarePushbotV3
         rightRearDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Spin_fun.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         arm_rot.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        wacky_wacky.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
  }
