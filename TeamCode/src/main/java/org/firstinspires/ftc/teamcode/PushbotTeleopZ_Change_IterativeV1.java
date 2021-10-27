@@ -318,8 +318,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         }
 
         robot.arm_rot.setPower(arm_power / 2);
-        robot.bucket_rot.setPower(arm_power);
-        robot.wacky_wacky.setPower(bucket_power);
+        robot.bucket_rot.setPower(bucket_power);
+        robot.wacky_wacky.setPower(wack_power);
         }
 
     @Override
