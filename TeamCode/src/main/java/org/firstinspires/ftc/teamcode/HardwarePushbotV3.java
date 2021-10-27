@@ -29,9 +29,11 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.configuration.annotations.ServoType;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -46,7 +48,7 @@ public class HardwarePushbotV3
     public DcMotor  arm_rot = null;
     public DcMotor  wacky_wacky = null;
     public Servo  camera_y = null;
-    public Servo  bucket_rot = null;
+    public CRServo  bucket_rot = null;
     
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
@@ -70,7 +72,7 @@ public class HardwarePushbotV3
         wacky_wacky = hwMap.get(DcMotor.class, "wacky_wacky");
 
         camera_y = hwMap.get(Servo.class,"camera_servo");
-        bucket_rot = hwMap.get(Servo.class,"bucket_rot");
+        bucket_rot = hwMap.get(CRServo.class,"bucket_rot");
 
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -87,6 +89,7 @@ public class HardwarePushbotV3
         Spin_fun.setPower(0);
         arm_rot.setPower(0);
         wacky_wacky.setPower(0);
+        bucket_rot.setPower(0);
 
         leftFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
