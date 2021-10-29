@@ -55,7 +55,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
     double cam_y_min = 0;
     double arm_power = 0;
     double bucket_power = 0;
-    double wack_power = 0;
+    double wack_power1 = 0;
+    double wack_power2 = 0;
 
     @Override
     public void init() {
@@ -302,7 +303,8 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
 
         double arm_power = 0;
         double bucket_power = 0;
-        double wack_power = 0;
+        double wack_power1 = 0;
+        double wack_power2 = 0;
 
         if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.right_stick_y;
@@ -311,15 +313,15 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
             bucket_power = -gamepad2.left_stick_y;
         }
         if ((gamepad2.left_trigger > (controller_safe_zone / 100)) || (gamepad2.left_trigger < (controller_safe_zone / -100))) {
-            wack_power = gamepad2.left_trigger / 3;
+            wack_power2 = gamepad2.left_trigger / 3;
         }
         if ((gamepad2.right_trigger > (controller_safe_zone / 100)) || (gamepad2.right_trigger < (controller_safe_zone / -100))) {
-            wack_power = -gamepad2.right_trigger / 3;
+            wack_power1 = gamepad2.right_trigger / 3;
         }
 
         robot.arm_rot.setPower(arm_power / 2);
         robot.bucket_rot.setPower(bucket_power);
-        robot.wacky_wacky.setPower(wack_power);
+        robot.wacky_wacky.setPower(wack_power2 - wack_power1);
         }
 
     @Override
