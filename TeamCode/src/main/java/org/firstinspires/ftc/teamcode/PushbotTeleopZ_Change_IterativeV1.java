@@ -87,9 +87,6 @@ public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
         double trig_right = 0;
         double trig_left = 0;
 
-
-
-
         //Define Controller 1
 
         //Define continue when button Y is pressed
