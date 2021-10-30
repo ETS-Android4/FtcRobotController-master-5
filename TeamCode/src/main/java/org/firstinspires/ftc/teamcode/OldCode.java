@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-public class Notes {
+public class OldCode {
     //            if ((gamepad1.left_stick_y > (controller_safe_zone / 100)) || (gamepad1.left_stick_y < (controller_safe_zone / -100)) & (gamepad1.left_stick_x > (controller_safe_zone / 100)) || (gamepad1.left_stick_x < (controller_safe_zone / -100))) {
 //                    //Define Forward Backward
 //                    robot.leftFrontDrive.setPower(((-forward_backward) + (-left_right)) / 2);
