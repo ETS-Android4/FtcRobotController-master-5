@@ -40,7 +40,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Pushbot")
 //@Disabled
-public class PushbotTeleopZ_Change_IterativeV1 extends OpMode{
+public class TeleopZ_Change_IterativeV1 extends OpMode{
     HardwarePushbotV3 robot       = new HardwarePushbotV3();
 
     //Define Start Variables
