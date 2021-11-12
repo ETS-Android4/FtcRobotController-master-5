@@ -314,8 +314,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         }
 
         robot.arm_rot.setPower(arm_power / 2);
-        robot.bucket_rot.setPower(claw_power1 - claw_power2);
-        robot.wacky_wacky.setPower(0);
         }
 
     @Override
