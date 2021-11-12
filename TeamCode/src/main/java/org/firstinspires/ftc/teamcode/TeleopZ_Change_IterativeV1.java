@@ -300,25 +300,22 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
         double arm_power = 0;
         double bucket_power = 0;
-        double wack_power1 = 0;
-        double wack_power2 = 0;
+        double claw_power1 = 0;
+        double claw_power2 = 0;
 
-        if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
-            arm_power = gamepad2.right_stick_y;
-        }
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
-            bucket_power = -gamepad2.left_stick_y;
+            arm_power = gamepad2.left_stick_y;
         }
         if ((gamepad2.left_trigger > (controller_safe_zone / 100)) || (gamepad2.left_trigger < (controller_safe_zone / -100))) {
-            wack_power2 = gamepad2.left_trigger / 3;
+            claw_power2 = gamepad2.left_trigger / 1;
         }
         if ((gamepad2.right_trigger > (controller_safe_zone / 100)) || (gamepad2.right_trigger < (controller_safe_zone / -100))) {
-            wack_power1 = gamepad2.right_trigger / 3;
+            claw_power1 = gamepad2.right_trigger / 1;
         }
 
         robot.arm_rot.setPower(arm_power / 2);
-        robot.bucket_rot.setPower(bucket_power);
-        robot.wacky_wacky.setPower(wack_power2 - wack_power1);
+        robot.bucket_rot.setPower(claw_power1 - claw_power2);
+        robot.wacky_wacky.setPower(0);
         }
 
     @Override
