@@ -50,13 +50,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
-    double camera_rot_y = 0;
-    double cam_y_max = 1;
-    double cam_y_min = 0;
     double arm_power = 0;
     double bucket_power = 0;
-    double wack_power1 = 0;
-    double wack_power2 = 0;
 
     @Override
     public void init() {
@@ -115,7 +110,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
-        telemetry.addData("Camera Y", camera_rot_y);
         //Set Profile
 
         //Define Movement/Controls
@@ -123,7 +117,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Tank Drive
 
-            camera_rot_y = 0.5;
             spin = 0;
 
             //Define Spin Controls
@@ -160,8 +153,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
 
-            //Define Camera Up Down
-            robot.camera_y.setPosition(camera_rot_y);
 
         }
 
@@ -173,8 +164,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             turn_right_left = 0;
             spin = 0;
             look_up_down = 0;
-            cam_y_max = 0.7;
-            cam_y_min = 0.2;
 
             //Define Spin Controls
             if (gamepad1.x) {
@@ -201,22 +190,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
                 look_up_down = -(gamepad1.right_stick_y);
             }
 
-            //Define Camera Rotation Limiter And Controller
-            if ((camera_rot_y > cam_y_min) & (gamepad1.right_stick_y > (controller_safe_zone / 100))) {
-                camera_rot_y = (camera_rot_y + (look_up_down / 100));
-            }
-
-            else if (camera_rot_y <= cam_y_min) {
-                camera_rot_y = cam_y_min;
-            }
-
-            if ((camera_rot_y < cam_y_max) & (gamepad1.right_stick_y < (controller_safe_zone / 100))) {
-                camera_rot_y = (camera_rot_y + (look_up_down / 100));
-            }
-
-            else if (camera_rot_y >= cam_y_max) {
-                camera_rot_y = cam_y_max;
-            }
 
             //Define Change Safe Zone
             if ((gamepad1.right_bumper) || (gamepad1.left_bumper)) {
@@ -244,9 +217,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
 
-            //Define Camera Up Down
-            robot.camera_y.setPosition(camera_rot_y);
-
             //Define Bucket Rotation
 
 
@@ -257,7 +227,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             forward_backward = 0;
             left_right = 0;
             turn_right_left = 0;
-            camera_rot_y = 0.5;
 
             if (gamepad1.dpad_up) {
                 forward_backward = 1;
@@ -292,25 +261,15 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
 
-            //Define Camera Up Down
-            robot.camera_y.setPosition(camera_rot_y);
             }
 
         //Define Controller 2
 
         double arm_power = 0;
         double bucket_power = 0;
-        double claw_power1 = 0;
-        double claw_power2 = 0;
 
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.left_stick_y;
-        }
-        if ((gamepad2.left_trigger > (controller_safe_zone / 100)) || (gamepad2.left_trigger < (controller_safe_zone / -100))) {
-            claw_power2 = gamepad2.left_trigger / 1;
-        }
-        if ((gamepad2.right_trigger > (controller_safe_zone / 100)) || (gamepad2.right_trigger < (controller_safe_zone / -100))) {
-            claw_power1 = gamepad2.right_trigger / 1;
         }
 
         robot.arm_rot.setPower(arm_power / 2);
