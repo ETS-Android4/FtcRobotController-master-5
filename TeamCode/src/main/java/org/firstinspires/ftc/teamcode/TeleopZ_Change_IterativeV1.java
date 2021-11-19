@@ -52,6 +52,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     int bumper_check = 0;
     double arm_power = 0;
     double bucket_power = 0;
+    double p2_drive_x = 0;
+    double p2_drive_z = 0;
 
     @Override
     public void init() {
@@ -144,6 +146,26 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
                 trig_left = gamepad1.left_trigger;
             }
 
+            if (gamepad2.dpad_up) {
+                right =  right + 0.1;
+                left =  left + 0.1;
+            }
+
+            if (gamepad2.dpad_down) {
+                right =  right + -0.1;
+                left =  left + -0.1;
+            }
+
+            if (gamepad2.dpad_left) {
+                right = right + 0.1;
+                left =  left + -0.1;
+            }
+
+            if (gamepad2.dpad_right) {
+                right = right + -0.1;
+                left = left + 0.1;
+            }
+
             //Define New Drive
             robot.leftFrontDrive.setPower(-left + trig_right + -trig_left);
             robot.rightFrontDrive.setPower(right + -trig_right + trig_left);
@@ -208,6 +230,22 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
                 bumper_check = 0;
             }
 
+            if (gamepad2.dpad_up) {
+                forward_backward = forward_backward + 0.1;
+            }
+
+            if (gamepad2.dpad_down) {
+                forward_backward =  forward_backward + -0.1;
+            }
+
+            if (gamepad2.dpad_left) {
+                turn_right_left = turn_right_left + 0.1;
+            }
+
+            if (gamepad2.dpad_right) {
+                turn_right_left = turn_right_left + -0.1;
+            }
+
             //Define New Drive
             robot.leftFrontDrive.setPower(-forward_backward + -left_right + turn_right_left);
             robot.rightFrontDrive.setPower(forward_backward + left_right + turn_right_left);
@@ -252,6 +290,22 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
                 spin = 0.5;
             }
 
+            if (gamepad2.dpad_up) {
+                forward_backward = forward_backward + 0.1;
+            }
+
+            if (gamepad2.dpad_down) {
+                forward_backward =  forward_backward + -0.1;
+            }
+
+            if (gamepad2.dpad_left) {
+                turn_right_left = turn_right_left + 0.1;
+            }
+
+            if (gamepad2.dpad_right) {
+                turn_right_left = turn_right_left + -0.1;
+            }
+
             //Define New Drive
             robot.leftFrontDrive.setPower(-forward_backward + -left_right + turn_right_left);
             robot.rightFrontDrive.setPower(forward_backward + left_right + turn_right_left);
@@ -272,8 +326,9 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             arm_power = gamepad2.left_stick_y;
         }
 
-        robot.arm_rot.setPower(arm_power / 2);
         }
+
+
 
     @Override
     public void stop() {
