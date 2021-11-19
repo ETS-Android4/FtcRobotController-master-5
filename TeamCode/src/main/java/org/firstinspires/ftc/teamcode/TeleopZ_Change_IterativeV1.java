@@ -27,15 +27,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 //Blue Down Arrow To Download
 //Green Check With Comment To Upload
 
-
 package org.firstinspires.ftc.teamcode;
-
-
-import android.nfc.tech.Ndef;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
