@@ -310,7 +310,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             arm_power = gamepad2.left_stick_y;
         }
 
-        robot.arm_rot.setPower(arm_power);
+        robot.arm_rot.setPower(arm_power / 2);
         robot.bucket_rot.setPower(claw_power);
 
         }
