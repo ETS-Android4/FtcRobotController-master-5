@@ -35,6 +35,8 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import android.nfc.tech.Ndef;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -317,8 +319,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         robot.bucket_rot.setPower(claw_power);
 
         }
-
-
 
     @Override
     public void stop() {
