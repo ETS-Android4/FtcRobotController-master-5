@@ -50,8 +50,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
-    double arm_power = 0;
-    double claw_power = 0;
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -73,11 +71,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         //Reset / Define Variables
         double left = 0;
         double right = 0;
-        double forward_backward = 0;
-        double left_right = 0;
-        double turn_right_left = 0;
-        double look_up_down = 0;
-        double spin = 0;
+        double forward_backward;
+        double left_right;
+        double turn_right_left;
+        double spin;
         double trig_right = 0;
         double trig_left = 0;
 
@@ -182,7 +179,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             left_right = 0;
             turn_right_left = 0;
             spin = 0;
-            look_up_down = 0;
 
             //Define Spin Controls
             if (gamepad1.x) {
@@ -203,12 +199,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             if ((gamepad1.right_stick_x > (controller_safe_zone / 100)) || (gamepad1.right_stick_x < (controller_safe_zone / -100))) {
                 turn_right_left = -(gamepad1.right_stick_x);
             }
-
-            //Define Camera Look Up Down
-            if ((gamepad1.right_stick_y > (controller_safe_zone / 100)) || (gamepad1.right_stick_y < (controller_safe_zone / -100))) {
-                look_up_down = -(gamepad1.right_stick_y);
-            }
-
 
             //Define Change Safe Zone
             if ((gamepad1.right_bumper) || (gamepad1.left_bumper)) {
