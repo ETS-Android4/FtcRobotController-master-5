@@ -74,6 +74,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         double spin;
         double trig_right = 0;
         double trig_left = 0;
+        double player2_speed = 0;
 
         //Define Controller 1
 
@@ -84,7 +85,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             profile = (profile % profile_count);
 
         }
-        
+
         //Define Do not continue until button Y is not pressed
         if ((profile_switch_debug == 1) & (!gamepad1.y)) {
             profile_switch_debug = 0;
@@ -138,23 +139,23 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             if (gamepad2.dpad_up) {
-                right =  right + 0.1;
-                left =  left + 0.1;
+                right =  right + player2_speed;
+                left =  left + player2_speed;
             }
 
             if (gamepad2.dpad_down) {
-                right =  right + -0.1;
-                left =  left + -0.1;
+                right =  right + -player2_speed;
+                left =  left + -player2_speed;
             }
 
             if (gamepad2.dpad_left) {
-                right = right + 0.1;
-                left =  left + -0.1;
+                right = right + player2_speed;
+                left =  left + -player2_speed;
             }
 
             if (gamepad2.dpad_right) {
-                right = right + -0.1;
-                left = left + 0.1;
+                right = right + -player2_speed;
+                left = left + player2_speed;
             }
 
             //Define New Drive
@@ -215,19 +216,19 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             if (gamepad2.dpad_up) {
-                forward_backward = forward_backward + 0.1;
+                forward_backward = forward_backward + player2_speed;
             }
 
             if (gamepad2.dpad_down) {
-                forward_backward =  forward_backward + -0.1;
+                forward_backward =  forward_backward + -player2_speed;
             }
 
             if (gamepad2.dpad_left) {
-                turn_right_left = turn_right_left + 0.1;
+                turn_right_left = turn_right_left + player2_speed;
             }
 
             if (gamepad2.dpad_right) {
-                turn_right_left = turn_right_left + -0.1;
+                turn_right_left = turn_right_left + -player2_speed;
             }
 
             //Define New Drive
@@ -275,19 +276,19 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             }
 
             if (gamepad2.dpad_up) {
-                forward_backward = forward_backward + 0.1;
+                forward_backward = forward_backward + player2_speed;
             }
 
             if (gamepad2.dpad_down) {
-                forward_backward =  forward_backward + -0.1;
+                forward_backward =  forward_backward + -player2_speed;
             }
 
             if (gamepad2.dpad_left) {
-                turn_right_left = turn_right_left + 0.1;
+                turn_right_left = turn_right_left + player2_speed;
             }
 
             if (gamepad2.dpad_right) {
-                turn_right_left = turn_right_left + -0.1;
+                turn_right_left = turn_right_left + -player2_speed;
             }
 
             //Define New Drive
