@@ -74,7 +74,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         double spin;
         double trig_right = 0;
         double trig_left = 0;
-        double player2_speed = 0;
+        double player2_speed = 0.4;
 
         //Define Controller 1
 
