@@ -52,9 +52,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     int bumper_check = 0;
     double arm_power = 0;
     double bucket_power = 0;
-    double p2_drive_x = 0;
-    double p2_drive_z = 0;
-
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -325,6 +322,9 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.left_stick_y;
         }
+
+        robot.arm_rot.setPower(arm_power);
+        robot.bucket_rot.setPower(bucket_power);
 
         }
 
