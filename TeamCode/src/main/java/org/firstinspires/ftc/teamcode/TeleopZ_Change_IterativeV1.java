@@ -310,8 +310,12 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.left_stick_y;
         }
-
-        robot.arm_rot.setPower(arm_power / 2);
+        if (gamepad2.a) {
+            robot.arm_rot.setPower(arm_power);
+        }
+        else {
+            robot.arm_rot.setPower(arm_power / 2);
+        }
         robot.bucket_rot.setPower(claw_power);
 
         }
