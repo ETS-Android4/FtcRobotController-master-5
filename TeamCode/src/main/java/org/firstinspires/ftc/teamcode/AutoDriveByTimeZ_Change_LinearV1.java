@@ -40,10 +40,13 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-
-    static final double     TURN_SPEED    = 0.5;
-    static final double     runtime1 = 1;
-
+    static final double     r1 = 0;
+    
+    static final double     r1 = r1 + 1;
+    static final double     r2 = r1 + 1;
+    static final double     r3 = r2 + 1;
+    static final double     r4 = r3 + 1;
+    
     @Override
     public void runOpMode() {
 
@@ -54,15 +57,26 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
         waitForStart();
         double run = 1;
+        ramTime = runtime.seconds()
         while (run == 1) {
             double fb = 0;
             double lr = 0;
             double t = 0;
-            if (opModeIsActive() && (runtime.seconds() < runtime1)) {
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
+            if (opModeIsActive() && (runtime.seconds() < r1)) {
+                fb = 1
             }
-            
+            else if (opModeIsActive() && (runtime.seconds() < r2)) {
+                fb = -1
+            }
+            else if (opModeIsActive() && (runtime.seconds() < r3)) {
+                t = 1
+            }
+            else if (opModeIsActive() && (runtime.seconds() < r4)) {
+                t = -1
+                lr = 1
+            }
+            telemetry.update();
+            telemetry.addData(runtime.seconds());
             robot.leftFrontDrive.setPower(-fb + lr + -t);
             robot.rightFrontDrive.setPower(fb + -lr + t);
             robot.leftRearDrive.setPower(-fb + -lr + t);
@@ -71,8 +85,6 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             run = 0;
             
         }
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
         sleep(1000);
     }
 }
