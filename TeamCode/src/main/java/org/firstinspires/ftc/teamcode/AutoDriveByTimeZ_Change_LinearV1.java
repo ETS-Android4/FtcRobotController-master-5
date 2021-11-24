@@ -46,6 +46,8 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     static final double     r2 = r1 + 1;
     static final double     r3 = r2 + 1;
     static final double     r4 = r3 + 1;
+    static final double     r5 = r4 + 1;
+    static final double     r6 = r5 + 1;
     
     @Override
     public void runOpMode() {
@@ -73,8 +75,14 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             }
             else if (opModeIsActive() && (runtime.seconds() < r4)) {
                 t = -1
+            }
+            else if (opModeIsActive() && (runtime.seconds() < r5)) {
                 lr = 1
             }
+            else if (opModeIsActive() && (runtime.seconds() < r6)) {
+                lr = -1
+            }
+            
             telemetry.update();
             telemetry.addData(runtime.seconds());
             robot.leftFrontDrive.setPower(-fb + lr + -t);
