@@ -40,9 +40,9 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
-    static final double     r1 = 0;
+    static final double     r0 = 0;
     
-    static final double     r1 = r1 + 1;
+    static final double     r1 = r0 + 1;
     static final double     r2 = r1 + 1;
     static final double     r3 = r2 + 1;
     static final double     r4 = r3 + 1;
