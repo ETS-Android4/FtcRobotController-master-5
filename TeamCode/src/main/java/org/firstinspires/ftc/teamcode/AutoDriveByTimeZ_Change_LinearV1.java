@@ -41,13 +41,8 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
-    static final double     LEFT_FORWARD_SPEED = -0.5;
-    static final double     RIGHT_FORWARD_SPEED = 0.5;
     static final double     TURN_SPEED    = 0.5;
-    static final double     LEG_TIME_1    = 6;
-    static final double     LEG_TIME_2    = 15;
-    static final double     LEG_TIME_3    = 2;
-    static final double     LEG_TIME_4    = 0;
+    static final double     runtime1 = 1;
 
     @Override
     public void runOpMode() {
@@ -58,52 +53,23 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
+        double run = 1;
+        while (run == 1) {
+            double fb = 0;
+            double lr = 0;
+            double t = 0;
+            if (opModeIsActive() && (runtime.seconds() < runtime1)) {
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+            }
 
-        robot.leftFrontDrive.setPower(-LEFT_FORWARD_SPEED);
-        robot.leftRearDrive.setPower(-LEFT_FORWARD_SPEED);
-        robot.rightFrontDrive.setPower(-RIGHT_FORWARD_SPEED);
-        robot.rightRearDrive.setPower(-RIGHT_FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < LEG_TIME_1)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
+            robot.leftFrontDrive.setPower(-fb);
+            robot.leftRearDrive.setPower(-fb);
+            robot.rightFrontDrive.setPower(fb);
+            robot.rightRearDrive.setPower(fb);
+
+            run = 0;
         }
-        robot.leftFrontDrive.setPower(0);
-        robot.leftRearDrive.setPower(0);
-        robot.rightFrontDrive.setPower(0);
-        robot.rightRearDrive.setPower(0);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < LEG_TIME_2)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        robot.leftFrontDrive.setPower(LEFT_FORWARD_SPEED);
-        robot.leftRearDrive.setPower(LEFT_FORWARD_SPEED);
-        robot.rightFrontDrive.setPower(RIGHT_FORWARD_SPEED);
-        robot.rightRearDrive.setPower(RIGHT_FORWARD_SPEED);
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < LEG_TIME_3)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        robot.leftFrontDrive.setPower(-LEFT_FORWARD_SPEED);
-        robot.leftRearDrive.setPower(LEFT_FORWARD_SPEED);
-        robot.rightFrontDrive.setPower(-RIGHT_FORWARD_SPEED);
-        robot.rightRearDrive.setPower(RIGHT_FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < LEG_TIME_4)) {
-            telemetry.addData("Path", "Leg 4: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        robot.leftFrontDrive.setPower(0);
-        robot.rightFrontDrive.setPower(0);
-        robot.leftRearDrive.setPower(0);
-        robot.rightRearDrive.setPower(0);
-
         telemetry.addData("Path", "Complete");
         telemetry.update();
         sleep(1000);
