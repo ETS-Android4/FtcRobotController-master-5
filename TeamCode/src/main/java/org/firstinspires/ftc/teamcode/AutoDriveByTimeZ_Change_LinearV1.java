@@ -62,13 +62,14 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
             }
-
-            robot.leftFrontDrive.setPower(-fb);
-            robot.leftRearDrive.setPower(-fb);
-            robot.rightFrontDrive.setPower(fb);
-            robot.rightRearDrive.setPower(fb);
+            
+            robot.leftFrontDrive.setPower(-fb + lr + -t);
+            robot.rightFrontDrive.setPower(fb + -lr + t);
+            robot.leftRearDrive.setPower(-fb + -lr + t);
+            robot.rightRearDrive.setPower(fb + lr + -t);
 
             run = 0;
+            
         }
         telemetry.addData("Path", "Complete");
         telemetry.update();
