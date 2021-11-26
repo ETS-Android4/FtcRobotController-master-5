@@ -34,6 +34,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Pushbot")
 //@Disabled
@@ -47,6 +48,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
+    double old time = 0;
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -64,7 +66,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
     public void loop() {
         //Start Files Here
-
+        
+        double pps = (1 / (runtime.seconds() - old time));
+        double old time = runtime.seconds();
+        
         //Reset / Define Variables
         double left = 0;
         double right = 0;
