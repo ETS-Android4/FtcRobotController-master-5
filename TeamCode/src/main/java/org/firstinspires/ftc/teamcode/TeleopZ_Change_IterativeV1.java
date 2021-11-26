@@ -48,7 +48,9 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
-    double old time = 0;
+    double old_time = 0;
+    private ElapsedTime     runtime = new ElapsedTime();
+
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -67,8 +69,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     public void loop() {
         //Start Files Here
         
-        double pps = (1 / (runtime.seconds() - old time));
-        double old time = runtime.seconds();
+        double pps = (1 / (runtime.seconds() - old_time));
+        double old_time = runtime.seconds();
         
         //Reset / Define Variables
         double left = 0;
@@ -171,7 +173,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin The Spinner
             robot.Spin_fun.setPower(spin);
-
 
         }
 

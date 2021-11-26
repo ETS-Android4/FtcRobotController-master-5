@@ -59,32 +59,29 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
         waitForStart();
         double run = 1;
-        ramTime = runtime.seconds()
         while (run == 1) {
             double fb = 0;
             double lr = 0;
             double t = 0;
             if (opModeIsActive() && (runtime.seconds() < r1)) {
-                fb = 1
+                fb = 1;
             }
             else if (opModeIsActive() && (runtime.seconds() < r2)) {
-                fb = -1
+                fb = -1;
             }
             else if (opModeIsActive() && (runtime.seconds() < r3)) {
-                t = 1
+                t = 1;
             }
             else if (opModeIsActive() && (runtime.seconds() < r4)) {
-                t = -1
+                t = -1;
             }
             else if (opModeIsActive() && (runtime.seconds() < r5)) {
-                lr = 1
+                lr = 1;
             }
             else if (opModeIsActive() && (runtime.seconds() < r6)) {
-                lr = -1
+                lr = -1;
             }
-            
-            telemetry.update();
-            telemetry.addData(runtime.seconds());
+
             robot.leftFrontDrive.setPower(-fb + lr + -t);
             robot.rightFrontDrive.setPower(fb + -lr + t);
             robot.leftRearDrive.setPower(-fb + -lr + t);
