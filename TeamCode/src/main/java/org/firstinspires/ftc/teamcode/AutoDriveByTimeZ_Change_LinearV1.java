@@ -33,14 +33,14 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Pushbot: Change Drive V1", group="Red")
+@Autonomous(name="Pushbot: ChangeZ Drive V1", group="Red")
 //@Disabled
 public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
     private final ElapsedTime     runtime = new ElapsedTime();
-    static final double     r0 = 0;
+    static final double     r0 = 1;
 
     static final double     r1 = r0 + 1;
     static final double     r2 = r1 + 1;
@@ -59,7 +59,21 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
         waitForStart();
         double run = 1;
+        double old_runtime = runtime.seconds() ;
         while (run == 1) {
+
+            //Notes
+                //Each Tile = 59cm
+
+                //fb = 1 second at power of 1 will be 90cm
+                    // 1 = Forward
+                    //-1 = Backward
+                //lr = 1 second at power of 1 will be 90cm
+                    // 1 = Right
+                    //-1 = Left
+                //t = 1 second at power of 1 will be 270 Degrees
+                    // 1 = Right
+                    //-1 = Left
 
             double pps = (1 / (runtime.seconds() - old));
             old = runtime.seconds();
@@ -67,24 +81,26 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             double fb = 0;
             double lr = 0;
             double t = 0;
-
-            if (opModeIsActive() && (runtime.seconds() < r1)) {
-                fb = 1;
+            if (opModeIsActive() && (runtime.seconds() - old_runtime < r0)) {
+                //Empty, do not remove
             }
-            else if (opModeIsActive() && (runtime.seconds() < r2)) {
-                fb = -1;
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r1)) {
+                fb = 0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r3)) {
-                t = 1;
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r2)) {
+                fb = -0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r4)) {
-                t = -1;
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r3)) {
+                t = 0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r5)) {
-                lr = 1;
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r4)) {
+                t = -0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r6)) {
-                lr = -1;
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r5)) {
+                lr = 0.3;
+            }
+            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r6)) {
+                lr = -0.3;
             }
 
             else {
@@ -92,8 +108,8 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             }
 
             robot.leftFrontDrive.setPower(-fb + lr + -t);
-            robot.rightFrontDrive.setPower(fb + -lr + t);
-            robot.leftRearDrive.setPower(-fb + -lr + t);
+            robot.rightFrontDrive.setPower(fb + -lr + -t);
+            robot.leftRearDrive.setPower(-fb + -lr + -t);
             robot.rightRearDrive.setPower(fb + lr + -t);
 
             telemetry.addData("PPS", pps);
