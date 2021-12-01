@@ -6,9 +6,9 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Pushbot: ChangeZ Drive V1", group="Red")
+@Autonomous(name="Autonomys Engine V1 Z Change", group="Red")
 //@Disabled
-public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
+public class Autonomys_Engine_V1_Z_Change extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
@@ -24,13 +24,7 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     double old = 0;
     @Override
     public void runOpMode() {
-
         robot.init(hardwareMap);
-
-        telemetry.addData("Status", "Ready to run");    //
-        telemetry.update();
-
-        waitForStart();
         double run = 1;
         runtime.reset();
         while (run == 1) {
