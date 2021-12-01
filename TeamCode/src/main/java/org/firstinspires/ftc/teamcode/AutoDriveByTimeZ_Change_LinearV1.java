@@ -59,7 +59,7 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
         waitForStart();
         double run = 1;
-        double old_runtime = runtime.seconds() ;
+        runtime.reset();
         while (run == 1) {
 
             //Notes
@@ -81,25 +81,23 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             double fb = 0;
             double lr = 0;
             double t = 0;
-            if (opModeIsActive() && (runtime.seconds() - old_runtime < r0)) {
-                //Empty, do not remove
-            }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r1)) {
+
+            if (opModeIsActive() && (runtime.seconds() < r1)) {
                 fb = 0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r2)) {
+            else if (opModeIsActive() && (runtime.seconds() < r2)) {
                 fb = -0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r3)) {
+            else if (opModeIsActive() && (runtime.seconds() < r3)) {
                 t = 0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r4)) {
+            else if (opModeIsActive() && (runtime.seconds() < r4)) {
                 t = -0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r5)) {
+            else if (opModeIsActive() && (runtime.seconds() < r5)) {
                 lr = 0.3;
             }
-            else if (opModeIsActive() && (runtime.seconds() - old_runtime < r6)) {
+            else if (opModeIsActive() && (runtime.seconds() < r6)) {
                 lr = -0.3;
             }
 
