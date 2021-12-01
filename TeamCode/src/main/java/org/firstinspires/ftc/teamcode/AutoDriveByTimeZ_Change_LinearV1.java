@@ -42,11 +42,11 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     private final ElapsedTime     runtime = new ElapsedTime();
     static final double     r0 = 0;
 
-    static final double     r1 = r0 + 1;
-    static final double     r2 = r1 + 1;
-    static final double     r3 = r2 + 1;
-    static final double     r4 = r3 + 1;
-    static final double     r5 = r4 + 1;
+    static final double     r1 = r0 + 0.1;
+    static final double     r2 = r1 + 0.1;
+    static final double     r3 = r2 + 0.6999999999;
+    static final double     r4 = r3 + 2;
+    static final double     r5 = r4 + 0.6999999999;
     static final double     r6 = r5 + 1;
     double old = 0;
     @Override
@@ -82,35 +82,40 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
             double fb = 0;
             double lr = 0;
             double t = 0;
+            double spin = 0;
+            double arm_power = 0;
 
-            if (opModeIsActive() && (runtime.seconds() < r1)) {
-                fb = 0.3;
+            if      (runtime.seconds() < r1) {
+                fb = -0.5;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r2)) {
-                fb = -0.3;
+            else if (runtime.seconds() < r2) {
+                fb = 0.2;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r3)) {
-                t = 0.3;
+            else if (runtime.seconds() < r3) {
+                lr = 1;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r4)) {
-                t = -0.3;
+            else if (runtime.seconds() < r4) {
+                spin = 0.5;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r5)) {
-                lr = 0.3;
+            else if (runtime.seconds() < r5) {
+                lr = -1;
+                fb = 1;
             }
-            else if (opModeIsActive() && (runtime.seconds() < r6)) {
-                lr = -0.3;
+            else if (runtime.seconds() < r6) {
+                arm_power = 0.4
             }
 
             else {
                 run = 0;
             }
-
+` 
             robot.leftFrontDrive.setPower(-fb + lr + -t);
             robot.rightFrontDrive.setPower(fb + -lr + -t);
             robot.leftRearDrive.setPower(-fb + -lr + -t);
             robot.rightRearDrive.setPower(fb + lr + -t);
-
+            robot.arm_rot.setPower(arm_power);
+            robot.Spin_fun.setPower(spin);
+            
             telemetry.addData("PPS", pps);
 
         }
