@@ -72,6 +72,7 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
                     // 1 = Right
                     //-1 = Left
                 //t = 1 second at power of 1 will be 270 Degrees
+                //t = 1 seocnds at power of 0.3 will be 90 Degrees
                     // 1 = Right
                     //-1 = Left
 
