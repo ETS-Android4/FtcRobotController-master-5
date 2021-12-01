@@ -39,7 +39,7 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
-    private ElapsedTime     runtime = new ElapsedTime();
+    private final ElapsedTime     runtime = new ElapsedTime();
     static final double     r0 = 0;
 
     static final double     r1 = r0 + 1;
@@ -48,7 +48,7 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
     static final double     r4 = r3 + 1;
     static final double     r5 = r4 + 1;
     static final double     r6 = r5 + 1;
-
+    double old = 0;
     @Override
     public void runOpMode() {
 
@@ -60,9 +60,14 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
         waitForStart();
         double run = 1;
         while (run == 1) {
+
+            double pps = (1 / (runtime.seconds() - old));
+            old = runtime.seconds();
+
             double fb = 0;
             double lr = 0;
             double t = 0;
+
             if (opModeIsActive() && (runtime.seconds() < r1)) {
                 fb = 1;
             }
@@ -82,13 +87,17 @@ public class AutoDriveByTimeZ_Change_LinearV1 extends LinearOpMode {
                 lr = -1;
             }
 
+            else {
+                run = 0;
+            }
+
             robot.leftFrontDrive.setPower(-fb + lr + -t);
             robot.rightFrontDrive.setPower(fb + -lr + t);
             robot.leftRearDrive.setPower(-fb + -lr + t);
             robot.rightRearDrive.setPower(fb + lr + -t);
 
-            run = 0;
-            
+            telemetry.addData("PPS", pps);
+
         }
         telemetry.addData("Path", "Complete");
         telemetry.update();

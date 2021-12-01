@@ -48,8 +48,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     float controller_safe_zone = 10;
     int profile_switch_debug = 0;
     int bumper_check = 0;
-    double old_time = 0;
-    private ElapsedTime     runtime = new ElapsedTime();
+    double old = 0;
+    private final ElapsedTime     runtime = new ElapsedTime();
 
     @Override
     public void init() {
@@ -69,8 +69,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     public void loop() {
         //Start Files Here
         
-        double pps = (1 / (runtime.seconds() - old_time));
-        double old_time = runtime.seconds();
+        double pps = (1 / (runtime.seconds() - old));
+        old = runtime.seconds();
         
         //Reset / Define Variables
         double left = 0;
@@ -111,6 +111,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
         telemetry.addData("Profile int",  base_profile);
         telemetry.addData("safe zone", controller_safe_zone);
+        telemetry.addData("PPS", pps);
         //Set Profile
 
         //Define Movement/Controls
