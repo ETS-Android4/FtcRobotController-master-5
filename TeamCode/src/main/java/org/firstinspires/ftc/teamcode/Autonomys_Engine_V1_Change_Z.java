@@ -26,6 +26,9 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
     public void runOpMode() {
         robot.init(hardwareMap);
         double run = 1;
+        
+        waitForStart();
+        
         runtime.reset();
         while (run == 1) {
 
