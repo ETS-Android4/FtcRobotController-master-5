@@ -15,12 +15,12 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
     private final ElapsedTime     runtime = new ElapsedTime();
     static final double     r0 = 0;
 
-    static final double     r1 = r0 + 0.1;
-    static final double     r2 = r1 + 0.1;
-    static final double     r3 = r2 + 0.6999999999;
-    static final double     r4 = r3 + 2;
-    static final double     r5 = r4 + 0.6999999999;
-    static final double     r6 = r5 + 1;
+    static final double     r1 = r0 + 1;
+    static final double     r2 = r1 + 5;
+    static final double     r3 = r2 + 0.7;
+    static final double     r4 = r3 + 1;
+    static final double     r5 = r4 + 1;
+
     double old = 0;
     @Override
     public void runOpMode() {
@@ -56,23 +56,19 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
             double arm_power = 0;
 
             if      (runtime.seconds() < r1) {
-                fb = -0.5;
+                lr = 0.6;
             }
             else if (runtime.seconds() < r2) {
-                fb = 0.2;
+                spin = 1;
             }
             else if (runtime.seconds() < r3) {
-                lr = 1;
+                fb = 0.5;
             }
             else if (runtime.seconds() < r4) {
-                spin = 0.5;
+                arm_power = -1;
             }
             else if (runtime.seconds() < r5) {
-                lr = -1;
-                fb = 1;
-            }
-            else if (runtime.seconds() < r6) {
-                arm_power = 0.4;
+                arm_power = 1;
             }
 
             else {
