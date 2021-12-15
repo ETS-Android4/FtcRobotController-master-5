@@ -80,16 +80,16 @@ public class Autonomys_Engine_V1_Change_Z_Blue1 extends LinearOpMode {
                 t = 0;
             }
             else if (runtime.seconds() < r6) {
-                lr = -0.5;
+                lr = 0;
             }
             else if (runtime.seconds() < r7) {
-                fb = 0.5;
+                fb = 0;
             }
             else if (runtime.seconds() < r8) {
-                t = -0.5;
+                t = -0;
             }
             else if (runtime.seconds() < r9) {
-                fb = 0.5;
+                fb = 0;
             }
 
             else {
