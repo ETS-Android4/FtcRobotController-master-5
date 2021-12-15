@@ -20,6 +20,9 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
     static final double     r3 = r2 + 0.7;
     static final double     r4 = r3 + 1;
     static final double     r5 = r4 + 1;
+    static final double     r6 = r5 + 3;
+    static final double     r7 = r6 + 0.7;
+    static final double     r8 = r6 + 5;
 
     double old = 0;
     @Override
@@ -65,10 +68,19 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
                 fb = 0.5;
             }
             else if (runtime.seconds() < r4) {
-                arm_power = -1;
+                lr = -0.6;
             }
             else if (runtime.seconds() < r5) {
-                arm_power = 1;
+                fb = -0.6;
+            }
+            else if (runtime.seconds() < r6) {
+                lr = -0.6;
+            }
+            else if (runtime.seconds() < r7) {
+                fb = 0.6;
+            }
+            else if (runtime.seconds() < r8) {
+                lr = 0.6;
             }
 
             else {
