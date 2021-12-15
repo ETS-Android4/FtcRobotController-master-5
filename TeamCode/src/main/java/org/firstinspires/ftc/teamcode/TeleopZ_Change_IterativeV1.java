@@ -323,7 +323,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         else {
             robot.arm_rot.setPower(arm_power / 2);
         }
-        robot.bucket_rot.setPower(claw_power);
+        robot.claw.setPower(claw_power);
 
         }
 
