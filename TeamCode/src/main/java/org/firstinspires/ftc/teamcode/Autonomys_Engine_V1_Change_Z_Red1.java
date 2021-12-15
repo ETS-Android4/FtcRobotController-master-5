@@ -6,23 +6,25 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Autonomys Engine V1 Change Z", group="Red")
+@Autonomous(name="Autonomys Engine V1 Change Z Red 1", group="Red")
 //@Disabled
-public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
+public class Autonomys_Engine_V1_Change_Z_Red1 extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbotV3 robot   = new HardwarePushbotV3();   // Use a Pushbot's hardware
     private final ElapsedTime     runtime = new ElapsedTime();
-    static final double     r0 = 0;
+    static final double     r0 = 0.1;
+
 
     static final double     r1 = r0 + 1;
     static final double     r2 = r1 + 5;
     static final double     r3 = r2 + 0.7;
     static final double     r4 = r3 + 1;
     static final double     r5 = r4 + 1;
-    static final double     r6 = r5 + 3;
-    static final double     r7 = r6 + 0.7;
-    static final double     r8 = r6 + 5;
+    static final double     r6 = r5 + 1;
+    static final double     r7 = r6 + 3;
+    static final double     r8 = r7 + 0.7;
+    static final double     r9 = r8 + 3;
 
     double old = 0;
     @Override
@@ -57,8 +59,10 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
             double t = 0;
             double spin = 0;
             double arm_power = 0;
-
-            if      (runtime.seconds() < r1) {
+            if (runtime.seconds() < r0) {
+                fb = 0.1;
+            }
+            else if (runtime.seconds() < r1) {
                 lr = 0.6;
             }
             else if (runtime.seconds() < r2) {
@@ -68,19 +72,24 @@ public class Autonomys_Engine_V1_Change_Z extends LinearOpMode {
                 fb = 0.5;
             }
             else if (runtime.seconds() < r4) {
-                lr = -0.6;
+                fb = -0.5;
             }
             else if (runtime.seconds() < r5) {
-                fb = -0.6;
+                fb = 0;
+                lr = 0;
+                t = 0;
             }
             else if (runtime.seconds() < r6) {
-                lr = -0.6;
+                lr = -0.5;
             }
             else if (runtime.seconds() < r7) {
-                fb = 0.6;
+                fb = 0.5;
             }
             else if (runtime.seconds() < r8) {
-                lr = 0.6;
+                t = -0.5;
+            }
+            else if (runtime.seconds() < r9) {
+                fb = 0.5;
             }
 
             else {
