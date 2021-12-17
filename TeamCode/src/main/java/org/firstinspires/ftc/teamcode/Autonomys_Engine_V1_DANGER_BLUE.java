@@ -18,6 +18,8 @@ public class Autonomys_Engine_V1_DANGER_BLUE extends LinearOpMode {
     static final double     r1 = r0 + 0.3;
     static final double     r2 = r1 + 0.7;
     static final double     r3 = r2 + 0.5;
+    static final double     r4 = r3 + 0.25;
+    static final double     r5 = r4 + 1;
 
     double old = 0;
     @Override
@@ -60,6 +62,14 @@ public class Autonomys_Engine_V1_DANGER_BLUE extends LinearOpMode {
                 lr = 0.5;
             }
             else if (runtime.seconds() < r3) {
+                fb = 0;
+                lr = 0;
+                t = 0;
+            }
+            else if (runtime.seconds() < r4) {
+                fb = -0.25;
+            }
+            else if (runtime.seconds() < r5) {
                 fb = 1;
             }
 
