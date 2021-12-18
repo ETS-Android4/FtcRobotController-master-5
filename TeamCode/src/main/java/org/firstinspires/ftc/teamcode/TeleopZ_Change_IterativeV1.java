@@ -125,6 +125,9 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             if (gamepad1.x) {
                 spin = 1;
             }
+            if (gamepad1.a) {
+                spin = -1;
+            }
 
             //Define Left Wheels
             if ((gamepad1.left_stick_y > (controller_safe_zone / 100)) || (gamepad1.left_stick_y < (controller_safe_zone / -100))) {
@@ -317,10 +320,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.left_stick_y;
         }
-        if (gamepad2.right_stick_y > .5) {
+        if (gamepad2.right_stick_y > .1) {
             robot.claw.setPower(-gamepad2.right_stick_y);
         }
-        if (gamepad2.right_stick_y > -.5) {
+        if (gamepad2.right_stick_y > -.1) {
             robot.claw.setPower(-gamepad2.right_stick_y);
         }
 
