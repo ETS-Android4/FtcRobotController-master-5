@@ -46,7 +46,7 @@ public class HardwarePushbotV3
     public DcMotor  rightRearDrive = null;
     public DcMotor  Spin_fun = null;
     public DcMotor  arm_rot = null;
-    public DcMotor  claw = null;
+    public Servo    claw = null;
     
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
@@ -67,7 +67,7 @@ public class HardwarePushbotV3
         rightRearDrive  = hwMap.get(DcMotor.class, "right_back");
         Spin_fun       = hwMap.get(DcMotor.class,"Spin_Thing");
         arm_rot         = hwMap.get(DcMotor.class,"arm_rot");
-        claw          = hwMap.get(DcMotor.class,"claw");
+        claw          = hwMap.get(Servo.class,"claw");
 
         leftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -82,7 +82,7 @@ public class HardwarePushbotV3
         rightRearDrive.setPower(0);
         Spin_fun.setPower(0);
         arm_rot.setPower(0);
-        claw.setPower(0);
+        claw.setPosition(0);
 
         leftFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

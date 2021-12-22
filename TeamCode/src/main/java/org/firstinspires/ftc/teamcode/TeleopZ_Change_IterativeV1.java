@@ -49,6 +49,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     int profile_switch_debug = 0;
     int bumper_check = 0;
     double old = 0;
+    double claw_rot = 180;
     private final ElapsedTime     runtime = new ElapsedTime();
 
     @Override
@@ -81,7 +82,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         double spin;
         double trig_right = 0;
         double trig_left = 0;
-        double player2_speed = 0.2;
+
 
         //Define Controller 1
 
@@ -149,26 +150,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
                 trig_left = gamepad1.left_trigger;
             }
 
-            if (gamepad2.dpad_up) {
-                right =  right + player2_speed;
-                left =  left + player2_speed;
-            }
-
-            if (gamepad2.dpad_down) {
-                right =  right + -player2_speed;
-                left =  left + -player2_speed;
-            }
-
-            if (gamepad2.dpad_left) {
-                right = right + player2_speed;
-                left =  left + -player2_speed;
-            }
-
-            if (gamepad2.dpad_right) {
-                right = right + -player2_speed;
-                left = left + player2_speed;
-            }
-
             //Define New Drive
             robot.leftFrontDrive.setPower(-left + trig_right + -trig_left);
             robot.rightFrontDrive.setPower(right + -trig_right + trig_left);
@@ -191,6 +172,9 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             //Define Spin Controls
             if (gamepad1.x) {
                 spin = 1;
+            }
+            if (gamepad1.a) {
+                spin = -1;
             }
 
             //Define Forward Backward Controls
@@ -223,22 +207,6 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             }
             else {
                 bumper_check = 0;
-            }
-
-            if (gamepad2.dpad_up) {
-                forward_backward = forward_backward + player2_speed;
-            }
-
-            if (gamepad2.dpad_down) {
-                forward_backward =  forward_backward + -player2_speed;
-            }
-
-            if (gamepad2.dpad_left) {
-                turn_right_left = turn_right_left + player2_speed;
-            }
-
-            if (gamepad2.dpad_right) {
-                turn_right_left = turn_right_left + -player2_speed;
             }
 
             //Define New Drive
@@ -284,21 +252,8 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             if (gamepad1.x) {
                 spin = 1;
             }
-
-            if (gamepad2.dpad_up) {
-                forward_backward = forward_backward + player2_speed;
-            }
-
-            if (gamepad2.dpad_down) {
-                forward_backward =  forward_backward + -player2_speed;
-            }
-
-            if (gamepad2.dpad_left) {
-                turn_right_left = turn_right_left + player2_speed;
-            }
-
-            if (gamepad2.dpad_right) {
-                turn_right_left = turn_right_left + -player2_speed;
+            if (gamepad1.a) {
+                spin = -1;
             }
 
             //Define New Drive
@@ -320,12 +275,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
             arm_power = gamepad2.left_stick_y;
         }
-        if (gamepad2.right_stick_y > .1) {
-            robot.claw.setPower(-gamepad2.right_stick_y);
+        if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
+            claw_power = gamepad2.right_stick_y;
         }
-        if (gamepad2.right_stick_y > -.1) {
-            robot.claw.setPower(-gamepad2.right_stick_y);
-        }
+        claw_rot = claw_rot + claw_power;
 
         if (gamepad2.a) {
             robot.arm_rot.setPower(arm_power);
@@ -333,10 +286,11 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         else {
             robot.arm_rot.setPower(arm_power / 2);
         }
-        robot.claw.setPower(claw_power);
+
+        robot.claw.setPosition((claw_power / 90) - 1);
+        robot.claw.setPosition(-((claw_power / 90) - 1));
 
         }
-
 
     @Override
     public void stop() {
