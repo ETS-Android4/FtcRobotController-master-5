@@ -280,10 +280,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         }
         if (claw_rot < 1 & claw_rot > -0.3)
         claw_rot = claw_rot + claw_power;
-        else if (claw_rot < 1) {
+        else if (claw_rot > 1) {
             claw_rot = 1;
         }
-        else if (claw_rot > -0.3) {
+        else if (claw_rot < -0.3) {
             claw_rot = -0.3;
         }
 
@@ -297,6 +297,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         robot.clawL.setPosition(claw_rot);
 //        robot.clawR.setPosition(claw_rot);
         telemetry.addData("Claw Rot", (claw_rot));
+        telemetry.addData("Claw Rot", (claw_power));
         }
 
 
