@@ -49,7 +49,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     int profile_switch_debug = 0;
     int bumper_check = 0;
     double old = 0;
-    double claw_rot = 180;
+    double claw_rot = 0;
     private final ElapsedTime     runtime = new ElapsedTime();
 
     @Override
@@ -272,13 +272,20 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         double arm_power = 0;
         double claw_power = 0;
 
-        if ((gamepad2.left_stick_y > (controller_safe_zone / 100)) || (gamepad2.left_stick_y < (controller_safe_zone / -100))) {
-            arm_power = gamepad2.left_stick_y;
+        if ((-gamepad2.left_stick_y > (controller_safe_zone / 100)) || (-gamepad2.left_stick_y < (controller_safe_zone / -100))) {
+            arm_power = -gamepad2.left_stick_y;
         }
-        if ((gamepad2.right_stick_y > (controller_safe_zone / 100)) || (gamepad2.right_stick_y < (controller_safe_zone / -100))) {
-            claw_power = gamepad2.right_stick_y;
+        if ((-gamepad2.right_stick_y > (controller_safe_zone / 100)) || (-gamepad2.right_stick_y < (controller_safe_zone / -100))) {
+            claw_power = -gamepad2.right_stick_y;
         }
+        if (claw_rot < 1 & claw_rot > -0.3)
         claw_rot = claw_rot + claw_power;
+        else if (claw_rot < 1) {
+            claw_rot = 1;
+        }
+        else if (claw_rot > -0.3) {
+            claw_rot = -0.3;
+        }
 
         if (gamepad2.a) {
             robot.arm_rot.setPower(arm_power);
@@ -287,10 +294,11 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
             robot.arm_rot.setPower(arm_power / 2);
         }
 
-        robot.claw.setPosition((claw_power / 90) - 1);
-        robot.claw.setPosition(-((claw_power / 90) - 1));
-
+        robot.clawL.setPosition(claw_rot);
+//        robot.clawR.setPosition(claw_rot);
+        telemetry.addData("Claw Rot", (claw_rot));
         }
+
 
     @Override
     public void stop() {
