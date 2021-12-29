@@ -280,10 +280,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         }
         if (claw_rot < 1 & claw_rot > -0.3)
         claw_rot = claw_rot + claw_power;
-        else if (claw_rot > 1) {
+        else if (claw_power > 1) {
             claw_rot = 1;
         }
-        else if (claw_rot < -0.3) {
+        else if (claw_power < 0) {
             claw_rot = -0.3;
         }
 

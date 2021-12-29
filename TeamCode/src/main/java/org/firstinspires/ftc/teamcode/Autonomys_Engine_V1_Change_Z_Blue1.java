@@ -16,7 +16,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue1 extends LinearOpMode {
     static final double     r0 = 0;
 
     static final double     r1 = r0 + 0.3;
-    static final double     r2 = r1 + 1.1;
+    static final double     r2 = r1 + 1.3;
     static final double     r3 = r2 + 5;
     static final double     r4 = r3 + 0.5;
 
