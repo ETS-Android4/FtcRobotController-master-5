@@ -278,12 +278,12 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
         if ((-gamepad2.right_stick_y > (controller_safe_zone / 100)) || (-gamepad2.right_stick_y < (controller_safe_zone / -100))) {
             claw_power = -gamepad2.right_stick_y;
         }
-        if (claw_rot < 1 & claw_rot > -0.3)
-        claw_rot = claw_rot + claw_power;
-        else if (claw_power > 1) {
+//        if (claw_rot < 1 & claw_rot > -0.3)
+//        claw_rot = claw_rot + claw_power;
+        if (claw_power > .9) {
             claw_rot = 1;
         }
-        else if (claw_power < 0) {
+        if (claw_power < 0) {
             claw_rot = -0.3;
         }
 
