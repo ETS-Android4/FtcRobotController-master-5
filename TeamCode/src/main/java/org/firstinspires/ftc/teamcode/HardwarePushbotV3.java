@@ -79,6 +79,8 @@ public class HardwarePushbotV3
         Spin_fun.setDirection(DcMotor.Direction.FORWARD);
         arm_rot.setDirection(DcMotor.Direction.FORWARD);
 
+        arm_rot.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         leftFrontDrive.setPower(0);
         rightFrontDrive.setPower(0);
         leftRearDrive.setPower(0);
