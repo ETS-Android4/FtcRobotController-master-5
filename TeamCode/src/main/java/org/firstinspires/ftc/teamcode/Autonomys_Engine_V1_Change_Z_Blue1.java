@@ -15,9 +15,9 @@ public class Autonomys_Engine_V1_Change_Z_Blue1 extends LinearOpMode {
     private final ElapsedTime     runtime = new ElapsedTime();
     static final double     r0 = 0;
 
-    static final double     r1 = r0 + 0.3;
-    static final double     r2 = r1 + 1.3;
-    static final double     r3 = r2 + 5;
+    static final double     r1 = r0 + 0.2;
+    static final double     r2 = r1 + 1.6;
+    static final double     r3 = r2 + 4.5;
     static final double     r4 = r3 + 0.65;
 
     double old = 0;
@@ -55,13 +55,13 @@ public class Autonomys_Engine_V1_Change_Z_Blue1 extends LinearOpMode {
             double arm_power = 0;
 
             if (runtime.seconds() < r1) {
-                fb = 0.1;
+                fb = 0.5;
             }
             else if (runtime.seconds() < r2) {
                 lr = 0.5;
             }
             else if (runtime.seconds() < r3) {
-                spin = 1;
+                spin = .75;
             }
             else if (runtime.seconds() < r4) {
                 fb = 0.5;
