@@ -35,7 +35,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue2_New extends LinearOpMode {
 
         //Step 1
         runtime.reset();
-        driveMode(0.1, 0, 0);
+        driveMode(0, -0.1, 0);
         runtime.reset();
 
         int NewTarget = robot.arm_rot.getCurrentPosition() + (int)QUARTER_TURN;
