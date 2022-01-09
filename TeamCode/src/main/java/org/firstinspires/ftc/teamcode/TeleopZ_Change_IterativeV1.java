@@ -36,7 +36,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Change Z")
 //@Disabled
 public class TeleopZ_Change_IterativeV1 extends OpMode{
     HardwarePushbotV3 robot       = new HardwarePushbotV3();
