@@ -58,8 +58,6 @@ public class HardwarePushbotV3
 
     public void init(HardwareMap ahwMap) {
 
-
-
         hwMap = ahwMap;
 
         leftFrontDrive  = hwMap.get(DcMotor.class, "left_front");
