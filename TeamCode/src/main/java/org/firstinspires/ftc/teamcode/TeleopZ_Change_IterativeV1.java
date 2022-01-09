@@ -34,6 +34,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="Pushbot: Teleop Z Change V1 (Use this for now.)", group="Change Z")
@@ -55,6 +56,7 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
     @Override
     public void init() {
         robot.init(hardwareMap);
+        robot.arm_rot.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     @Override
