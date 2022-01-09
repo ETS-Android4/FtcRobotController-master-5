@@ -23,7 +23,7 @@ public class Autonomys_Engine_V1_Change_Z_Red2_New extends LinearOpMode {
     static final double     C_P_R = 28;
     static final double     G_R   = 99.5;
     static final double     Tic_Per_Rev = C_P_R * G_R;
-    static final double     QUARTER_TURN = -Tic_Per_Rev/6;
+    static final double     QUARTER_TURN = -Tic_Per_Rev/8;
 
     double old = 0;
     @Override
