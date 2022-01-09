@@ -124,10 +124,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin Controls
             if (gamepad1.x) {
-                spin = 1;
+                spin = 0.9;
             }
             if (gamepad1.a) {
-                spin = -1;
+                spin = -0.9;
             }
 
             //Define Left Wheels
@@ -171,10 +171,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin Controls
             if (gamepad1.x) {
-                spin = 1;
+                spin = 0.9;
             }
             if (gamepad1.a) {
-                spin = -1;
+                spin = -0.9;
             }
 
             //Define Forward Backward Controls
@@ -250,10 +250,10 @@ public class TeleopZ_Change_IterativeV1 extends OpMode{
 
             //Define Spin Controls
             if (gamepad1.x) {
-                spin = 1;
+                spin = 0.9;
             }
             if (gamepad1.a) {
-                spin = -1;
+                spin = -0.9;
             }
 
             //Define New Drive
