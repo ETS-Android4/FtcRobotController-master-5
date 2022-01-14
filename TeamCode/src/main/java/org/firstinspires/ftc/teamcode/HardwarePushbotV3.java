@@ -87,7 +87,7 @@ public class HardwarePushbotV3
         arm_rot.setPower(0);
 
         clawR.setPosition(0);
-        clawL.setPosition(0);
+        clawL.setPosition(0.4);
 
         leftFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFrontDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
