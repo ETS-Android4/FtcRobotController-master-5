@@ -26,25 +26,9 @@ public class Autonomys_Engine_V1_Change_Z_Red1_New extends LinearOpMode {
     static final double     r9 = 1;
     static final double     r10 = -1.5;
     static final double     r11 = 1;
-    static final double     r12 = 1;
+    static final double     r12 = 0;
     static final double     r13= 2;
     static final double     r14 = 5;
-
-//                if (runtime.seconds() < r1) {
-//        fb = 0.5;
-//    }
-//            else if (runtime.seconds() < r2) {
-//        lr = -0.5;
-//    }
-//            else if (runtime.seconds() < r3) {
-//        spin = -.75;
-//    }
-//            else if (runtime.seconds() < r4) {
-//        fb = 0.5;
-//    }
-//            else {
-//        run = 0;
-//    }
 // Arm stuff
 
     static final double     C_P_R = 28;
@@ -164,7 +148,7 @@ public class Autonomys_Engine_V1_Change_Z_Red1_New extends LinearOpMode {
         }
 
         //Step 12
-        driveMode(0, 0, 0);
+        driveMode(0, -0.5, 0);
         runtime.reset();
         while(runtime.seconds() < r12 && opModeIsActive()){
             telemetry.addData("Step 12", "arm down");
