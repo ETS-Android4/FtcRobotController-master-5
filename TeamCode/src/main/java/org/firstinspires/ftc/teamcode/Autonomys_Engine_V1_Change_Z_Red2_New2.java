@@ -19,7 +19,7 @@ public class Autonomys_Engine_V1_Change_Z_Red2_New2 extends LinearOpMode {
     static final double     r2 = 1;
     static final double     r3 = 1;
     static final double     r4 = 1.6;
-    static final double     r5 = 1.5;
+    static final double     r5 = 1;
     static final double     r6 = 0;
 
     // Arm stuff
