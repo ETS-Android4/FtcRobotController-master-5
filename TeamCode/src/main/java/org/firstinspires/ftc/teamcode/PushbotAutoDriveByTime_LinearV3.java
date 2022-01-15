@@ -33,7 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Pushbot: Auto Drive By TimeV3", group="Red")
+@Autonomous(name="Pushbot: Auto Drive By TimeV3", group="Z_Old")
 //@Disabled
 public class PushbotAutoDriveByTime_LinearV3 extends LinearOpMode {
 

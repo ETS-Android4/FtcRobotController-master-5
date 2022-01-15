@@ -47,7 +47,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop TankV3", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop TankV3", group="Z_Old")
 //@Disabled
 public class PushbotTeleopTank_IterativeV3 extends OpMode{
 

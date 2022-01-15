@@ -33,7 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp(name="Pushbot: Teleop TankV4", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop TankV4", group="Z_Old")
 //@Disabled
 public class PushbotTeleopTank_IterativeV4 extends OpMode{
 
