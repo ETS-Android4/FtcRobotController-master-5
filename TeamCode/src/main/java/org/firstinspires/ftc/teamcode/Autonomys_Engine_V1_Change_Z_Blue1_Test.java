@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.SampleRevBlinkinLedDriver;
 
-@Autonomous(name="Autonomys Engine V1 Change Z Blue 1 test", group="Blue")
+@Autonomous(name="DO NOT USE Autonomys Engine V1 Change Z Blue 1 test", group="Blue")
 //@Disabled
 public class Autonomys_Engine_V1_Change_Z_Blue1_Test extends LinearOpMode {
 

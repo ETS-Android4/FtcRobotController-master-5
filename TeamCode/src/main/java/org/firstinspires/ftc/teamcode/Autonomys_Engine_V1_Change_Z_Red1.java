@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Autonomys Engine V1 Change Z Red 1", group="Red")
+@Autonomous(name="DO NOT USE Autonomys Engine V1 Change Z Red 1", group="Red")
 //@Disabled
 public class Autonomys_Engine_V1_Change_Z_Red1 extends LinearOpMode {
 
