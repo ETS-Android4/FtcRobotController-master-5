@@ -168,7 +168,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue1_New extends LinearOpMode {
         runtime.reset();
         int NewTarget_2 = robot.arm_rot.getCurrentPosition() + (int)arm_down;
         robot.arm_rot.setTargetPosition(NewTarget_2);
-        robot.arm_rot.setPower(.5);
+        robot.arm_rot.setPower(-1);
         robot.arm_rot.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         while(runtime.seconds() < r14 && opModeIsActive()){

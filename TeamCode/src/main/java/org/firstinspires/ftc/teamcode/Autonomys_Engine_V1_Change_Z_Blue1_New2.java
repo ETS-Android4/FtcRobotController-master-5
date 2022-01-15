@@ -24,11 +24,11 @@ public class Autonomys_Engine_V1_Change_Z_Blue1_New2 extends LinearOpMode {
     static final double     r7 = 1.2;
     static final double     r8 = 1;
     static final double     r9 = 1;
-    static final double     r10 = -1.5;
-    static final double     r11 = 1;
+    static final double     r10 = 2;
+    static final double     r11 = 0.5;
     static final double     r12 = 0;
-    static final double     r13= 2;
-    static final double     r14 = 5;
+    static final double     r13= 0;
+    static final double     r14 = 0;
 // Arm stuff
 
     static final double     C_P_R = 28;
@@ -132,7 +132,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue1_New2 extends LinearOpMode {
         }
 
         //Step 10
-        driveMode(-1, 0, 0);
+        driveMode(-0.5, 0, 0);
         runtime.reset();
         while(runtime.seconds() < r10 && opModeIsActive()){
             telemetry.addData("Step 10", "drive backward");
