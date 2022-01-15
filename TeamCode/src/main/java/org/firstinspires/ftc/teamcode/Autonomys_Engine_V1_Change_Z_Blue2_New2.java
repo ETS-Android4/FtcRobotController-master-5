@@ -18,8 +18,8 @@ public class Autonomys_Engine_V1_Change_Z_Blue2_New2 extends LinearOpMode {
     static final double     r1 = 1.9;
     static final double     r2 = 1;
     static final double     r3 = 1;
-    static final double     r4 = 1.6;
-    static final double     r5 = 3;
+    static final double     r4 = 1.5;
+    static final double     r5 = .5;
     static final double     r6 = 0;
 
     // Arm stuff
@@ -87,7 +87,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue2_New2 extends LinearOpMode {
         }
 
         //Step 4
-        driveMode(1, 0, 0);
+        driveMode(.75, 0, 0);
         runtime.reset();
 
         while(runtime.seconds() < r4 && opModeIsActive()){
@@ -96,7 +96,7 @@ public class Autonomys_Engine_V1_Change_Z_Blue2_New2 extends LinearOpMode {
         }
 
         //Step 5
-        driveMode(01, 0, 0);
+        driveMode(.75, 0, 0);
         runtime.reset();
 
         int NewTarget3 = robot.arm_rot.getCurrentPosition() + (int)as;
